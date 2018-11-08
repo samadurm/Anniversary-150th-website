@@ -24,23 +24,45 @@ const portOptions = {
     port : 3000
 };
 
-http
-.createServer(function(req,res){
+http.createServer(function(req,res){
+    
+    var fileType;
+    var fileName;
 
-    if(req.url == "/"){
-        res.writeHead(200,"base html header",{'Content-Type' : 'text/html'});
-        var fileIndex;
-        htmlFolder.forEach((file)=>{
-
-        });
-        res.write(html);
-    }else if(req.url == "/style.css"){
-        res.writeHead(200,"style header",{'Content-Type' : 'text/css'});
-        res.write(css);
-    }else if(req.url == "/index.js"){
-        res.writeHead(200,"javascript header",{'Content-Type' : 'application/javascript'});
-        res.write(js);
+    if(req.url == '/'){
+        fileType = 'html';
+        fileName = 'base.html';
+    }else{
+        fileType = req.url.split(".")[1];
+        fileName = req.url.split("/")[1];
     }
+
+    if(fileType == 'html'){
+        res.writeHead(200,"html header",{'Content-Type' : 'text/html'});
+        for(var i = 0; i < htmlFolder.length; i++){
+            if(htmlFolder[i] == fileName){
+                res.write(htmlContents[i]);
+                break;
+            }
+        }
+    }else if(fileType == 'css'){
+        res.writeHead(200,"style header",{'Content-Type' : 'text/css'});
+        for(var i = 0; i < cssFolder.length; i++){
+            if(cssFolder[i] == fileName){
+                res.write(cssContents[i]);
+                break;
+            }
+        }
+    }else if(fileType == 'js'){
+        res.writeHead(200,"javascript header",{'Content-Type' : 'application/javascript'});
+        for(var i = 0; i < jsFolder.length; i++){
+            if(jsFolder[i] == fileName){
+                res.write(jsContents[i]);
+                break;
+            }
+        }
+    }
+
     res.end();
 
 }).listen(portOptions,function(err){
