@@ -31,17 +31,18 @@ http.createServer(function(req,res){
 
     if(req.url == '/'){
         fileType = 'html';
-        fileName = 'base.html';
+        fileName = 'main-page.html';
     }else{
         fileType = req.url.split(".")[1];
         fileName = req.url.split("/")[1];
     }
-
+    
     if(fileType == 'html'){
         res.writeHead(200,"html header",{'Content-Type' : 'text/html'});
         for(var i = 0; i < htmlFolder.length; i++){
             if(htmlFolder[i] == fileName){
                 res.write(htmlContents[i]);
+                console.log('==loaded: ' + htmlFolder[i])
                 break;
             }
         }
@@ -50,6 +51,7 @@ http.createServer(function(req,res){
         for(var i = 0; i < cssFolder.length; i++){
             if(cssFolder[i] == fileName){
                 res.write(cssContents[i]);
+                console.log('==loaded: ' + cssFolder[i])
                 break;
             }
         }
@@ -58,11 +60,11 @@ http.createServer(function(req,res){
         for(var i = 0; i < jsFolder.length; i++){
             if(jsFolder[i] == fileName){
                 res.write(jsContents[i]);
+                console.log('==loaded: ' + jsFolder[i])
                 break;
             }
         }
     }
-
     res.end();
 
 }).listen(portOptions,function(err){
