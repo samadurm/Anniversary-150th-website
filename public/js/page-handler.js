@@ -1,6 +1,9 @@
-var homePage = document.getElementById("home-page");
-var addPostPage = document.getElementById("addpost-page");
-var aboutPage = document.getElementById("about-page");
+const homePage = document.getElementById("home-page");
+const addPostPage = document.getElementById("addpost-page");
+const aboutPage = document.getElementById("about-page");
+
+addPostPage.style.display = 'none';
+aboutPage.style.display = 'none';
 
 document.getElementById("home-button").addEventListener('click',()=>{
     console.log('here');
