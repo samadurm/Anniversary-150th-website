@@ -1,25 +1,28 @@
-const homePage = document.getElementById("home-page");
-const addPostPage = document.getElementById("addpost-page");
-const aboutPage = document.getElementById("about-page");
-
-addPostPage.style.display = 'none';
-aboutPage.style.display = 'none';
-
-document.getElementById("home-button").addEventListener('click',()=>{
-    console.log('here');
-    addPostPage.style.display = 'none';
-    aboutPage.style.display = 'none';
-    homePage.style.display = 'block';
+loadPage("home-page.html");
+document.getElementById("home-button").addEventListener('click',function(){
+    loadPage(this.getAttribute("loadedpage"));
 });
 
-document.getElementById("about-button").addEventListener('click',()=>{
-    addPostPage.style.display = 'none';
-    aboutPage.style.display = 'block';
-    homePage.style.display = 'none';
+document.getElementById("about-button").addEventListener('click',function(){
+    loadPage(this.getAttribute("loadedpage"));
 });
 
-document.getElementById("addpost-button").addEventListener('click',()=>{
-    addPostPage.style.display = 'block';
-    aboutPage.style.display = 'none';
-    homePage.style.display = 'none';
+document.getElementById("addpost-button").addEventListener('click',function(){
+    loadPage(this.getAttribute("loadedpage"));
 });
+
+const pages = [];
+document.getElementById("subpage-list").textContent.split(",").forEach((ele)=>{
+    pages.push(ele.trim());
+});
+
+function loadPage(path){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == XMLHttpRequest.DONE || this.status == 200){
+            document.getElementById("subpage-holder").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET",path,true);
+    xhttp.send();
+}
