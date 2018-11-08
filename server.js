@@ -12,7 +12,7 @@ const portOptions = {
 
 http.createServer(function(req,res){
 
-}).listen(potOptions,function(err){
+}).listen(portOptions,function(err){
     if(err){
         throw err;
     }
