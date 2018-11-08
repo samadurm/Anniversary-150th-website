@@ -1,22 +1,28 @@
 const http = require("http");
 const fs = require("fs");
 
-var htmlFolder = fs.readdirSync("./public/html");
-var htmlContents = [];
+const htmlFolder = fs.readdirSync("./public/html");
+const htmlContents = [];
 htmlFolder.forEach((file)=>{
     htmlContents.push(fs.readFileSync("./public/html/" + file));
 });
 
-var cssFolder = fs.readdirSync("./public/css");
-var cssContents = [];
+const cssFolder = fs.readdirSync("./public/css");
+const cssContents = [];
 cssFolder.forEach((file)=>{
     cssContents.push(fs.readFileSync("./public/css/" + file));
 });
 
-var jsFolder = fs.readdirSync("./public/js");
-var jsContents = [];
+const jsFolder = fs.readdirSync("./public/js");
+const jsContents = [];
 jsFolder.forEach((file)=>{
     jsContents.push(fs.readFileSync("./public/js/" + file));
+});
+
+const resFolder = fs.readdirSync("./public/resources");
+const resContents = [];
+resFolder.forEach((file)=>{
+    resContents.push(fs.readFileSync("./public/res/" + file));
 });
 
 const portOptions = {
@@ -36,7 +42,7 @@ http.createServer(function(req,res){
         fileType = req.url.split(".")[1];
         fileName = req.url.split("/")[1];
     }
-    
+
     if(fileType == 'html'){
         res.writeHead(200,"html header",{'Content-Type' : 'text/html'});
         for(var i = 0; i < htmlFolder.length; i++){
@@ -61,6 +67,24 @@ http.createServer(function(req,res){
             if(jsFolder[i] == fileName){
                 res.write(jsContents[i]);
                 console.log('==loaded: ' + jsFolder[i])
+                break;
+            }
+        }
+    }else if(fileType == 'png'){
+        res.writeHead(200,"image header",{'Content-Type' : 'image/png'});
+        for(var i = 0; i < resFolder.length; i++){
+            if(resFolder[i] == fileName){
+                res.write(resContents[i]);
+                console.log('==loaded: ' + resFolder[i])
+                break;
+            }
+        }
+    }else if(fileType == 'jpg'){
+        res.writeHead(200,"image header",{'Content-Type' : 'image/jpg'});
+        for(var i = 0; i < resFolder.length; i++){
+            if(resFolder[i] == fileName){
+                res.write(resContents[i]);
+                console.log('==loaded: ' + resFolder[i])
                 break;
             }
         }
