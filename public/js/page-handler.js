@@ -11,11 +11,6 @@ document.getElementById("addpost-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"));
 });
 
-const pages = [];
-document.getElementById("subpage-list").textContent.split(",").forEach((ele)=>{
-    pages.push(ele.trim());
-});
-
 function loadPage(path){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
