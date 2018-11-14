@@ -1,4 +1,3 @@
-loadPage("home-page.html");
 document.getElementById("home-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"));
 });
@@ -8,14 +7,15 @@ document.getElementById("about-button").addEventListener('click',function(){
 });
 
 document.getElementById("addpost-button").addEventListener('click',function(){
-    loadPage(this.getAttribute("loadedpage"));
+    loadPage(this.getAttribute("loadedpage"),initCanvas);
 });
 
-function loadPage(path){
+function loadPage(path,callback = function(){}){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if(this.readyState == XMLHttpRequest.DONE || this.status == 200){
             document.getElementById("subpage-holder").innerHTML = this.responseText;
+            callback();
         }
     };
     xhttp.open("GET",path,true);
