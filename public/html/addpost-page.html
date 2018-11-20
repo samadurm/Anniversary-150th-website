@@ -1,15 +1,27 @@
- <link rel="stylesheet" href="../css/addPost.css"> 
- <!-- Where does this go if we dont have a <head>? -->
 <div id = main-div>
    <div class = post-title-container>
        <input id = title-post-input class = title-post type = "text" name = post-title placeholder="Title">
     </div>
-    <div class = post-drawing-container></div>
-    <div class = button-container>
-    <button id = post-button class = sidebar-button>Post</button>
-    <button id = edit-button class = sidebar-button>Edit</button>
-        <div class = inner-toolbar>
-            
+    <div class = post-drawing-container>
+        <canvas id = addpost-canvas width = 700 height = 350></canvas>
+    </div>
+    <div class = post-options-container>
+            <div class = linewidth-options>
+                <input id = linewidth-range type = range min = 1 max = 10 value = 3>
+            </div>
+            <div class = linestyle-options>
+
+            </div>
+            <div class = linetype-options>
+                <button id = eraser-button class = sidebar-button>Erase</button>
+                <button id = pen-button class = sidebar-button>Pen</button>
+            </div>
+            <div class = color-options>
+                <canvas id = canvas-options width = 600 height = 600s></canvas>
+            </div>
         </div>
+    <div class = button-container>
+        <button id = post-button class = sidebar-button>Post</button>
+        <button id = reset-button class = sidebar-button>Reset</button>
     </div>
 </div>

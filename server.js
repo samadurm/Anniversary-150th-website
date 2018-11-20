@@ -19,7 +19,7 @@ jsFolder.forEach((file)=>{
     jsContents.push(fs.readFileSync("./public/js/" + file));
 });
 
-const resFolder = fs.readdirSync("./public/resources");
+const resFolder = fs.readdirSync("./public/res");
 const resContents = [];
 resFolder.forEach((file)=>{
     resContents.push(fs.readFileSync("./public/res/" + file));
