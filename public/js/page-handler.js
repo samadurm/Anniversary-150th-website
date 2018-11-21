@@ -7,7 +7,7 @@ document.getElementById("about-button").addEventListener('click',function(){
 });
 
 document.getElementById("addpost-button").addEventListener('click',function(){
-    loadPage(this.getAttribute("loadedpage"),initCanvas);
+    loadPage(this.getAttribute("loadedpage"),init);
 });
 
 function loadPage(path,callback = function(){}){
