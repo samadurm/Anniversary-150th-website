@@ -88,6 +88,10 @@ http.createServer(function(req,res){
                 break;
             }
         }
+    }else if(fileType == 'ico'){
+        res.writeHead(200,"favicon",{'Content-Type' : 'image/x-icon'});
+        res.write(fs.readFileSync('public/favicon.ico'));
+        console.log('==loaded: favicon.ico');
     }
     res.end();
 
