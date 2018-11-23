@@ -15,7 +15,7 @@ const portOptions = {
 };
 
 var app = express();
-app.use(bodyparser.json());
+app.use(bodyparser.json({'limit' : '10mb'}));
 
 app.get('*', function(req,res){
 
@@ -80,7 +80,13 @@ app.get('*', function(req,res){
     }else if(fileType == 'ico'){
         res.status(200).sendFile(__dirname + '/public/favicon.ico');
         console.log('==loaded: favicon.ico');
+        fileLoaded = true;
+    }else if(fileType == 'json'){
+        res.status(200).sendFile(__dirname + '/public/image-data.json');
+        console.log('==loaded: image-data.json');
+        fileLoaded = true;
     }
+
     if(!fileLoaded){
         res.status(404).sendFile(__dirname + "/public/html/404-page.html");
         console.log("==ERROR: FILE NOT FOUND");

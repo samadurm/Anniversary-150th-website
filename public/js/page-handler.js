@@ -2,12 +2,12 @@ document.getElementById("home-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"));
 });
 
-document.getElementById("about-button").addEventListener('click',function(){
-    loadPage(this.getAttribute("loadedpage"));
+document.getElementById("post-button").addEventListener('click',function(){
+    loadPage(this.getAttribute("loadedpage"),initPost);
 });
 
 document.getElementById("addpost-button").addEventListener('click',function(){
-    loadPage(this.getAttribute("loadedpage"),init);
+    loadPage(this.getAttribute("loadedpage"),initAddpost);
 });
 
 function loadPage(path,callback = function(){}){

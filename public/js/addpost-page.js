@@ -11,7 +11,7 @@
     var opctCtx;
     var darkCtx;
 
-function init(){
+function initAddpost(){
     canvas = document.getElementById("addpost-canvas");
     blank = document.createElement("canvas");
     blank.width = canvas.width;
@@ -153,7 +153,7 @@ function init(){
         ctx.clearRect(0,0,canvas.width,canvas.height);
     }); 
 
-    document.getElementById("post-button").addEventListener("click", function(){
+    document.getElementById("post-image-button").addEventListener("click", function(){
         var titleEmpty = (document.getElementById('title-post-input').value == "");
         var creatorEmpty = (document.getElementById('creator-post-input').value == "");
         var canvasEmpty = canvas.toDataURL() == blank.toDataURL();
@@ -195,7 +195,6 @@ function updateColor(type, value){
     if(type == 'opacity'){
         rgba = 'rgba(' + rgbaInfo[0] + ',' + rgbaInfo[1] + ',' + rgbaInfo[2] + ',' + value + ')';
     }
-    console.log(rgba);
     rgbaInfo = rgba.substring(5,rgba.length-1).split(',');
     optsCtx.fillStyle = 'rgba(' + rgbaInfo[0]*darkness + ',' + rgbaInfo[1]*darkness + ',' + rgbaInfo[2]*darkness + ',' + rgbaInfo[3] + ')';
     optsCtx.clearRect(10,220,50,50);
