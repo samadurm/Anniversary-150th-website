@@ -150,10 +150,22 @@ function init(){
     }); 
 
     document.getElementById("post-button").addEventListener("click", function(){
-        console.log(canvas.toDataURL());
+        var postInfo = {};
+        postInfo.title = document.getElementById('title-post-input').value;
+        postInfo.creator = document.getElementById('creator-post-input').value;
+        postInfo.data = canvas.toDataURL();
         var postreq = new XMLHttpRequest();
-        postreq.open('POST','img.png');
-        postreq.send(canvas.toDataURL());
+        postreq.onreadystatechange = function(){
+            if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
+                alert(this.responseText);
+            }
+            if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
+                alert("error occured in saving image");
+            }
+        };
+        postreq.open('POST','image',true);
+        postreq.setRequestHeader('Content-Type','application/json');
+        postreq.send(JSON.stringify(postInfo));
     });
 }
 

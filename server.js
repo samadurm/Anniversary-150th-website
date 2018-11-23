@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+
 const express = require('express');
 const bodyparser = require('body-parser');
 
@@ -15,15 +16,6 @@ const portOptions = {
 
 var app = express();
 app.use(bodyparser.json());
-http.createServer(app);
-
-app.listen(portOptions, function(err){
-    if(err){
-        throw err;
-    }else{
-        console.log('==Listening on Port: 3000');
-    }
-});
 
 app.get('*', function(req,res){
 
@@ -38,14 +30,14 @@ app.get('*', function(req,res){
         fileName = req.url.split("/")[1];
     }
 
-    var fileFound = false;
+    var fileLoaded = false;
 
     if(fileType == 'html'){
         for(var i = 0; i < htmlFolder.length; i++){
             if(htmlFolder[i] == fileName){
                 res.status(200).sendFile(__dirname + '/public/html/' + htmlFolder[i]);
                 console.log('==loaded: ' + htmlFolder[i]);
-                fileFound = true;
+                fileLoaded = true;
                 break;
             }
         }
@@ -54,7 +46,7 @@ app.get('*', function(req,res){
             if(cssFolder[i] == fileName){
                 res.status(200).sendFile(__dirname + '/public/css/' + cssFolder[i]);
                 console.log('==loaded: ' + cssFolder[i]);
-                fileFound = true;
+                fileLoaded = true;
                 break;
             }
         }
@@ -63,25 +55,25 @@ app.get('*', function(req,res){
             if(jsFolder[i] == fileName){
                 res.status(200).sendFile(__dirname + '/public/js/' + jsFolder[i]);
                 console.log('==loaded: ' + jsFolder[i]);
-                fileFound = true;
+                fileLoaded = true;
                 break;
             }
         }
-    }else if(fileType == 'png'){
+    }else if(fileType == 'png' || fileType == 'PNG'){
         for(var i = 0; i < resFolder.length; i++){
             if(resFolder[i] == fileName){
                 res.status(200).sendFile(__dirname + '/public/res/' + resFolder[i]);
                 console.log('==loaded: ' + resFolder[i]);
-                fileFound = true;
+                fileLoaded = true;
                 break;
             }
         }
-    }else if(fileType == 'jpg'){
+    }else if(fileType == 'jpg' || fileType == 'JPG'){
         for(var i = 0; i < resFolder.length; i++){
             if(resFolder[i] == fileName){
                 res.status(200).sendFile(__dirname + '/public/res/' + resFolder[i]);
                 console.log('==loaded: ' + resFolder[i]);
-                fileFound = true;
+                fileLoaded = true;
                 break;
             }
         }
@@ -89,8 +81,32 @@ app.get('*', function(req,res){
         res.status(200).sendFile(__dirname + '/public/favicon.ico');
         console.log('==loaded: favicon.ico');
     }
-    if(!fileFound){
-        res.status(404).sendFile(__dirname + '/public/html/404-page.html');
-        console.log('==ERROR 404: FILE NOT FOUND');
+    if(!fileLoaded){
+        res.status(404).sendFile(__dirname + "/public/html/404-page.html");
+        console.log("==ERROR: FILE NOT FOUND");
+    }
+});
+
+app.post('*',function(req,res){
+    if(req.url == '/image'){
+        fs.readFile(__dirname + '/public/image-data.json','utf8',function(err,raw){
+            if(err){
+                throw err;
+            }
+            var data = JSON.parse(raw);
+            data.push(req.body);
+            var json = JSON.stringify(data,null,4);
+            fs.writeFile(__dirname + '/public/image-data.json',json,function(){
+                res.status(200).send("image saved successfully");
+            });
+        });
+    }
+});
+
+app.listen(portOptions, function(err){
+    if(err){
+        throw err;
+    }else{
+        console.log('==Listening on Port: 3000');
     }
 });
