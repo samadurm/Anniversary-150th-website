@@ -148,6 +148,13 @@ function init(){
     document.getElementById("reset-button").addEventListener("click", function(){
         ctx.clearRect(0,0,canvas.width,canvas.height);
     }); 
+
+    document.getElementById("post-button").addEventListener("click", function(){
+        console.log(canvas.toDataURL());
+        var postreq = new XMLHttpRequest();
+        postreq.open('POST','img.png');
+        postreq.send(canvas.toDataURL());
+    });
 }
 
 function updateColor(type, value){

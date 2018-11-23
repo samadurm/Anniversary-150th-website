@@ -1,7 +1,10 @@
 {
-    "name": "cs290-final-website",
-    "description": "Website by Matthew, Gang Li, Kevin",
-    "version": "1.0.0",
-    "main": "server.js",
-    "dependencies": {}
+  "name": "cs290-final-website",
+  "description": "Website by Matthew, Gang Li, Kevin",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
 }

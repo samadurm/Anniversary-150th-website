@@ -1,37 +1,32 @@
 const http = require("http");
 const fs = require("fs");
+const express = require('express');
+const bodyparser = require('body-parser');
 
 const htmlFolder = fs.readdirSync("./public/html");
-const htmlContents = [];
-htmlFolder.forEach((file)=>{
-    htmlContents.push(fs.readFileSync("./public/html/" + file));
-});
-
 const cssFolder = fs.readdirSync("./public/css");
-const cssContents = [];
-cssFolder.forEach((file)=>{
-    cssContents.push(fs.readFileSync("./public/css/" + file));
-});
-
 const jsFolder = fs.readdirSync("./public/js");
-const jsContents = [];
-jsFolder.forEach((file)=>{
-    jsContents.push(fs.readFileSync("./public/js/" + file));
-});
-
 const resFolder = fs.readdirSync("./public/res");
-const resContents = [];
-resFolder.forEach((file)=>{
-    resContents.push(fs.readFileSync("./public/res/" + file));
-});
 
 const portOptions = {
     hostname : 'localhost',
-    port : 3000
+    port : process.env.PORT || 3000
 };
 
-http.createServer(function(req,res){
-    
+var app = express();
+app.use(bodyparser.json());
+http.createServer(app);
+
+app.listen(portOptions, function(err){
+    if(err){
+        throw err;
+    }else{
+        console.log('==Listening on Port: 3000');
+    }
+});
+
+app.get('*', function(req,res){
+
     var fileType;
     var fileName;
 
@@ -43,60 +38,59 @@ http.createServer(function(req,res){
         fileName = req.url.split("/")[1];
     }
 
+    var fileFound = false;
+
     if(fileType == 'html'){
-        res.writeHead(200,"html header",{'Content-Type' : 'text/html'});
         for(var i = 0; i < htmlFolder.length; i++){
             if(htmlFolder[i] == fileName){
-                res.write(htmlContents[i]);
-                console.log('==loaded: ' + htmlFolder[i])
+                res.status(200).sendFile(__dirname + '/public/html/' + htmlFolder[i]);
+                console.log('==loaded: ' + htmlFolder[i]);
+                fileFound = true;
                 break;
             }
         }
     }else if(fileType == 'css'){
-        res.writeHead(200,"style header",{'Content-Type' : 'text/css'});
         for(var i = 0; i < cssFolder.length; i++){
             if(cssFolder[i] == fileName){
-                res.write(cssContents[i]);
-                console.log('==loaded: ' + cssFolder[i])
+                res.status(200).sendFile(__dirname + '/public/css/' + cssFolder[i]);
+                console.log('==loaded: ' + cssFolder[i]);
+                fileFound = true;
                 break;
             }
         }
     }else if(fileType == 'js'){
-        res.writeHead(200,"javascript header",{'Content-Type' : 'application/javascript'});
         for(var i = 0; i < jsFolder.length; i++){
             if(jsFolder[i] == fileName){
-                res.write(jsContents[i]);
-                console.log('==loaded: ' + jsFolder[i])
+                res.status(200).sendFile(__dirname + '/public/js/' + jsFolder[i]);
+                console.log('==loaded: ' + jsFolder[i]);
+                fileFound = true;
                 break;
             }
         }
     }else if(fileType == 'png'){
-        res.writeHead(200,"image header",{'Content-Type' : 'image/png'});
         for(var i = 0; i < resFolder.length; i++){
             if(resFolder[i] == fileName){
-                res.write(resContents[i]);
-                console.log('==loaded: ' + resFolder[i])
+                res.status(200).sendFile(__dirname + '/public/res/' + resFolder[i]);
+                console.log('==loaded: ' + resFolder[i]);
+                fileFound = true;
                 break;
             }
         }
     }else if(fileType == 'jpg'){
-        res.writeHead(200,"image header",{'Content-Type' : 'image/jpg'});
         for(var i = 0; i < resFolder.length; i++){
             if(resFolder[i] == fileName){
-                res.write(resContents[i]);
-                console.log('==loaded: ' + resFolder[i])
+                res.status(200).sendFile(__dirname + '/public/res/' + resFolder[i]);
+                console.log('==loaded: ' + resFolder[i]);
+                fileFound = true;
                 break;
             }
         }
     }else if(fileType == 'ico'){
-        res.writeHead(200,"favicon",{'Content-Type' : 'image/x-icon'});
-        res.write(fs.readFileSync('public/favicon.ico'));
+        res.status(200).sendFile(__dirname + '/public/favicon.ico');
         console.log('==loaded: favicon.ico');
     }
-    res.end();
-
-}).listen(portOptions,function(err){
-    if(err){
-        throw err;
+    if(!fileFound){
+        res.status(404).sendFile(__dirname + '/public/html/404-page.html');
+        console.log('==ERROR 404: FILE NOT FOUND');
     }
 });
