@@ -1,4 +1,5 @@
     var canvas;
+    var blank;
     var canvasOpts;
     var canvasOpacity;
     var canvasDarkness;
@@ -12,6 +13,9 @@
 
 function init(){
     canvas = document.getElementById("addpost-canvas");
+    blank = document.createElement("canvas");
+    blank.width = canvas.width;
+    blank.height =
     canvasOpts = document.getElementById("canvas-options");
     canvasOpacity = document.getElementById("opacity-options");
     canvasDarkness = document.getElementById("darkness-options");
@@ -150,22 +154,33 @@ function init(){
     }); 
 
     document.getElementById("post-button").addEventListener("click", function(){
-        var postInfo = {};
-        postInfo.title = document.getElementById('title-post-input').value;
-        postInfo.creator = document.getElementById('creator-post-input').value;
-        postInfo.data = canvas.toDataURL();
-        var postreq = new XMLHttpRequest();
-        postreq.onreadystatechange = function(){
-            if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-                alert(this.responseText);
-            }
-            if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
-                alert("error occured in saving image");
-            }
-        };
-        postreq.open('POST','image',true);
-        postreq.setRequestHeader('Content-Type','application/json');
-        postreq.send(JSON.stringify(postInfo));
+        var titleEmpty = (document.getElementById('title-post-input').value == "");
+        var creatorEmpty = (document.getElementById('creator-post-input').value == "");
+        var canvasEmpty = canvas.toDataURL() == blank.toDataURL();
+        if(titleEmpty){
+            alert('title is empty');
+        }else if(creatorEmpty){
+            alert('name is empty');
+        }else if(canvasEmpty){
+            alert('canvas is empty');
+        }else{
+            var postInfo = {};
+            postInfo.title = document.getElementById('title-post-input').value;
+            postInfo.creator = document.getElementById('creator-post-input').value;
+            postInfo.data = canvas.toDataURL();
+            var postreq = new XMLHttpRequest();
+            postreq.onreadystatechange = function(){
+                if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
+                    alert(this.responseText);
+                }
+                if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
+                    alert("error occured in saving image");
+                }
+            };
+            postreq.open('POST','image',true);
+            postreq.setRequestHeader('Content-Type','application/json');
+            postreq.send(JSON.stringify(postInfo));
+        }
     });
 }
 
