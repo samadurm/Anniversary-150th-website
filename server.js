@@ -37,7 +37,7 @@ http.createServer(function(req,res){
 
     if(req.url == '/'){
         fileType = 'html';
-        fileName = 'main-page.html';
+        fileName = 'skeleton.html';
     }else{
         fileType = req.url.split(".")[1];
         fileName = req.url.split("/")[1];
