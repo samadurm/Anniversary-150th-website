@@ -113,6 +113,6 @@ app.listen(portOptions, function(err){
     if(err){
         throw err;
     }else{
-        console.log('==Listening on Port: 3000');
+        console.log('==Listening on Port:' + portOptions.port);
     }
 });
