@@ -1,5 +1,5 @@
     var canvas;
-    var blank;
+    var canvasPre;
     var canvasOpts;
     var canvasOpacity;
     var canvasDarkness;
@@ -10,12 +10,13 @@
     var optsCtx;
     var opctCtx;
     var darkCtx;
+    var preCtx;
+    var drawMode;
 
 function initAddpost(){
     canvas = document.getElementById("addpost-canvas");
-    blank = document.createElement("canvas");
-    blank.width = canvas.width;
-    blank.height =
+    canvasPre = document.getElementById("preview-canvas");
+    drawMode = 'pen';
     canvasOpts = document.getElementById("canvas-options");
     canvasOpacity = document.getElementById("opacity-options");
     canvasDarkness = document.getElementById("darkness-options");
@@ -52,20 +53,60 @@ function initAddpost(){
             darkCtx.fillRect(0,200-(i*2),15,2);
         }
     }
+    if(canvasPre.getContext){
+        preCtx = canvasPre.getContext('2d');
+        preCtx.lineWidth = ctx.lineWidth;
+        preCtx.strokeStyle = ctx.strokeStyle;
+        preCtx.lineJoin = 'miter';
+    }
 
     var drawing = false;
+    var drawingShape = false;
+    var shapeCoordsStart = [];
+    var shapeCoordsEnd = [];
     canvas.addEventListener("mousemove", function(event){
         if(event.buttons == 1){
-            if(drawing){
-                ctx.lineTo(event.offsetX,event.offsetY);
-                ctx.closePath();
-                ctx.stroke();
-                ctx.beginPath();
-                ctx.moveTo(event.offsetX,event.offsetY);
+            if(drawMode == 'pen'){
+                if(drawing){
+                    ctx.lineTo(event.offsetX,event.offsetY);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(event.offsetX,event.offsetY);
+                }else{
+                    ctx.beginPath();
+                    ctx.moveTo(event.offsetX,event.offsetY);
+                    drawing = true;
+                }
             }else{
-                ctx.beginPath();
-                ctx.moveTo(event.offsetX,event.offsetY);
-                drawing = true;
+                if(drawingShape){
+                    var tmpCoords = [event.offsetX,event.offsetY];
+                    var x = shapeCoordsStart[0];
+                    if(shapeCoordsStart[0] > tmpCoords[0]){
+                        x = tmpCoords[0];
+                    }
+                    var y = shapeCoordsStart[1];
+                    if(shapeCoordsStart[1] > tmpCoords[1]){
+                        y = tmpCoords[1];
+                    }
+                    var width = Math.abs(shapeCoordsStart[0] - tmpCoords[0]);
+                    var height = Math.abs(shapeCoordsStart[1] - tmpCoords[1]);
+                    preCtx.lineWidth = ctx.lineWidth;
+                    preCtx.strokeStyle = ctx.strokeStyle;
+                    if(drawMode == 'rect'){
+                        preCtx.beginPath();
+                        preCtx.clearRect(0,0,canvasPre.width,canvasPre.height);
+                        preCtx.rect(x,y,width,height);
+                        preCtx.stroke();
+                        preCtx.closePath();
+                    }else if(drawMode == 'circle'){
+                        preCtx.beginPath();
+                        preCtx.clearRect(0,0,canvasPre.width,canvasPre.height);
+                        preCtx.ellipse(x+width/2,y+height/2,width/2,height/2,0,0,Math.PI*2);
+                        preCtx.stroke();
+                        preCtx.closePath();
+                    }
+                }
             }
         }else{
             drawing = false;
@@ -74,8 +115,45 @@ function initAddpost(){
     
     canvas.addEventListener("mouseleave", function(){
         drawing = false;
+        drawingShape = false;
+        preCtx.clearRect(0,0,canvasPre.width,canvasPre.height);
     });
     
+    canvas.addEventListener("mousedown", function(event){
+        if(!drawingShape && (drawMode == 'circle'||drawMode == 'rect')){
+            shapeCoordsStart = [event.offsetX,event.offsetY];
+            drawingShape = true;
+        }
+    });
+
+    canvas.addEventListener("mouseup", function(event){
+        if(drawingShape == true){
+            shapeCoordsEnd = [event.offsetX,event.offsetY];
+            var x = shapeCoordsStart[0];
+            if(shapeCoordsStart[0] > shapeCoordsEnd[0]){
+                x = shapeCoordsEnd[0];
+            }
+            var y = shapeCoordsStart[1];
+            if(shapeCoordsStart[1] > shapeCoordsEnd[1]){
+                y = shapeCoordsEnd[1];
+            }
+            var width = Math.abs(shapeCoordsStart[0] - shapeCoordsEnd[0]);
+            var height = Math.abs(shapeCoordsStart[1] - shapeCoordsEnd[1]);
+            if(drawMode == 'rect'){
+                ctx.beginPath();
+                ctx.rect(x,y,width,height);
+                ctx.stroke();
+                ctx.closePath();
+            }else if(drawMode == 'circle'){
+                ctx.beginPath();
+                ctx.ellipse(x+width/2,y+height/2,width/2,height/2,0,0,Math.PI*2);
+                ctx.stroke();
+                ctx.closePath();
+            }
+            drawingShape = false;
+        }
+    });
+
     canvasOpts.addEventListener("mousedown", function(event){
         if(event.buttons == 1){
             if(Math.sqrt((event.offsetX-100)*(event.offsetX-100) + (event.offsetY-100)*(event.offsetY-100)) < 95){
@@ -142,16 +220,32 @@ function initAddpost(){
     };
     
     document.getElementById("pen-button").addEventListener("click", function(){
+        drawMode = 'pen';
         ctx.strokeStyle = rgba;
+        ctx.lineJoin = 'round';
     });
 
     document.getElementById("eraser-button").addEventListener("click", function(){
+        drawMode = 'pen';
         ctx.strokeStyle = 'rgba(255,255,255,1)';
+        ctx.lineJoin = 'round';
     });
     
     document.getElementById("reset-button").addEventListener("click", function(){
         ctx.clearRect(0,0,canvas.width,canvas.height);
     }); 
+
+    document.getElementById("circle-button").addEventListener("click", function(){
+        drawMode = 'circle';
+        ctx.strokeStyle = rgba;
+        ctx.lineJoin = 'miter';
+    });
+
+    document.getElementById("square-button").addEventListener("click", function(){
+        drawMode = 'rect';
+        ctx.strokeStyle = rgba;
+        ctx.lineJoin = 'miter';
+    });
 
     document.getElementById("post-image-button").addEventListener("click", function(){
         var titleEmpty = (document.getElementById('title-post-input').value == "");

@@ -1,0 +1,43 @@
+.post-drawing-container{
+    position : relative;
+    top:10px;
+    left:10px;
+}
+
+.post-drawing-container canvas{
+    position : absolute;
+    border : 2px solid black;
+    top:0px;
+    left:0px;
+}
+
+#preview-canvas{
+    z-index : 1;
+}
+
+#addpost-canvas{
+    z-index : 2;
+}
+
+.post-options-container{
+    position : relative;
+    top:10px;
+    left:800px;
+    border : 2px solid red;
+}
+
+.button-container{
+    border : 2px solid blue;
+}
+
+#darkness-options{
+    position : absolute;
+    left:230px;
+    top:50px;
+}
+
+#opacity-options{
+    position : absolute;
+    left:265px;
+    top:50px;
+}

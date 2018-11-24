@@ -9,18 +9,20 @@
     </div>
     <div class = post-drawing-container>
         <canvas id = addpost-canvas width = 700 height = 350></canvas>
+        <canvas id = preview-canvas width = 700 height = 350></canvas>
     </div>
     <div class = post-options-container>
             <div class = linewidth-options>
                 <input id = linewidth-range type = range min = 1 max = 20 value = 3>
                 <input id = linewidth-value type = number min = 1 max = 20 value = 3>
             </div>
-            <div class = linestyle-options>
-
-            </div>
             <div class = linetype-options>
                 <button id = eraser-button class = sidebar-button>Erase</button>
                 <button id = pen-button class = sidebar-button>Pen</button>
+            </div>
+            <div class = shape-options>
+                <button id = circle-button class = shape-button><img src = >Circle</button>
+                <button id = square-button class = shape-button><img src = >Square</button>
             </div>
             <div class = color-options>
                 <canvas id = canvas-options class = sidebar-option width = 800 height = 600></canvas>
