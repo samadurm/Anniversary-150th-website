@@ -276,6 +276,7 @@ function initAddpost(){
             postreq.send(JSON.stringify(postInfo));
         }
     });
+
 }
 
 function updateColor(type, value){
