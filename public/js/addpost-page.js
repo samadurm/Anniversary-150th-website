@@ -250,13 +250,13 @@ function initAddpost(){
     document.getElementById("post-image-button").addEventListener("click", function(){
         var titleEmpty = (document.getElementById('title-post-input').value == "");
         var creatorEmpty = (document.getElementById('creator-post-input').value == "");
-        var canvasEmpty = canvas.toDataURL() == blank.toDataURL();
+        var canvasEmpty = canvas.toDataURL() == canvasPre.toDataURL();
         if(titleEmpty){
-            alert('title is empty');
+            alert('Title is empty');
         }else if(creatorEmpty){
-            alert('name is empty');
+            alert('Name is empty');
         }else if(canvasEmpty){
-            alert('canvas is empty');
+            alert('Canvas is empty');
         }else{
             var postInfo = {};
             postInfo.title = document.getElementById('title-post-input').value;
