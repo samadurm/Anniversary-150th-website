@@ -1,3 +1,55 @@
-.top-bar {
+#top-bar {
     background-color: black;
+    display: inline-flex;
+}
+#main-div {
+    background-color: #fff0e6;
+}
+#post-container {
+    background-color: white;
+    margin:  10px;
+    border: 1px solid black;
+    width: 310px;
+    height: auto;
+}
+#drawing-container {
+    display: block;
+    width: 300px;
+    height: 160px;
+}
+#info-container {
+    padding: 10px;
+    background-color: #B2ADAD;
+    border-top: 1px solid black;
+}
+#title{
+    display: inline;
+    color: whitesmoke;
+    text-shadow: 1px 1px 2px black; 
+    font-weight: bold;
+}
+#title:hover{
+    text-decoration: underline;
+    text-shadow: 1px 1px 2px black; 
+    color: orange;
+}
+img {
+    max-width: 300px;
+    max-height: 150px;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+} 
+#thumbs-container{
+    position: right;
+    color: whitesmoke;
+    float: right;
+}
+#thumbs{
+    font-size: 20px
+}
+#thumbs:hover{
+    color: orange;
+    text-shadow: 1px 1px 2px black; 
 }
