@@ -10,6 +10,11 @@ document.getElementById("addpost-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"),initAddpost);
 });
 
+document.getElementById("search-button").addEventListener('click',function(){
+    loadPage(this.getAttribute("loadedpage"),initComment);
+});
+
+
 function loadPage(path,callback = function(){}){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){

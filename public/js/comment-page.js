@@ -1,4 +1,6 @@
-﻿//Additional comments
+﻿
+function initComment(){
+//Additional comments
 var lasttext="";
 function comment() {
     var txt = $("#txt_pl").val();
@@ -59,3 +61,5 @@ $(document).click(function (e) {
     }
 
 });
+
+}
