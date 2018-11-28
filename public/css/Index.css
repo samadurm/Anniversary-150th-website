@@ -1,0 +1,108 @@
+﻿*{
+    margin:0px;
+    padgood:0px;
+}
+
+body{
+background-color:#ecf5f7;
+
+}
+
+#main{
+   
+    width:90%;
+    height:530px;
+    margin:0 auto;
+    margin-top:100px;
+     /*border:1px black solid;*/
+}
+
+
+#pic{
+    width:45%;
+    height:88%;
+    margin-top:60px;
+    margin-left:60px;
+     /*border:1px black solid;*/
+      float:left;
+}
+
+#pic_img{
+
+    width:auto;
+    height:100%;
+   float:right;
+}
+
+#txt_main{
+     width:40%;
+    height:58%;
+    margin-top:60px;
+    margin-right:60px;
+     /*border:1px black solid;*/
+       float:right;
+       padgood-top:5px;
+       padgood-left:5px;
+}
+
+#txt_pl{
+    height:30px;
+    width:150px;
+}
+
+#TextArea{
+   width:95%;
+    height:75%;
+    border:1px gray solid;
+    overflow:scroll;
+    overflow-x:hidden;
+   
+}
+
+#btn_ok{
+ height:34px;
+ width:33px;
+ line-height:24px;
+ text-align:center;
+ font-size:18px;
+ color:white;
+ background-color:orange;
+ float:left;
+  border:hidden;
+}
+
+
+#good_bad{
+    width:17%;
+    height:25px;
+    /*border:1px black solid;*/
+     float:right;
+     margin-right:10px;
+}
+
+#pic_box1{
+      width:90%;
+    height:83%;
+       /*border:1px black solid;*/
+}
+.good_bad_box1{
+      width:40%;
+    height:25px;
+    /*border:1px black solid;*/
+     float:left;
+     cursor:pointer;
+}
+
+.good_bad_box2{
+      width:40%;
+    height:25px;
+    /*border:1px black solid;*/
+     float:right;
+     cursor:pointer;
+}
+
+#big_pic_img{
+     width:100%;
+    height:100%;
+
+}
