@@ -2,13 +2,13 @@
     background-color: black;
     display: inline-flex;
 }
-#main-div {
+body {
     background-color: #fff0e6;
 }
 #post-container {
     background-color: white;
     margin:  10px;
-    border: 1px solid black;
+    box-shadow: 10px 10px 20px black;
     width: 310px;
     height: auto;
 }
@@ -27,6 +27,15 @@
     color: whitesmoke;
     text-shadow: 1px 1px 2px black; 
     font-weight: bold;
+}
+#author{
+    float: center;
+    font-family: 'Ranga', cursive;
+}
+#author-name-container{
+    padding:10px;
+    text-align: center;
+    padding-top: 2px;
 }
 #title:hover{
     text-decoration: underline;
