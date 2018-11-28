@@ -103,7 +103,7 @@ app.post('*',function(req,res){
             data.push(req.body);
             var json = JSON.stringify(data,null,4);
             fs.writeFile(__dirname + '/public/image-data.json',json,function(){
-                res.status(200).send("image saved successfully");
+                res.status(200).send("Image saved successfully");
             });
         });
     }
