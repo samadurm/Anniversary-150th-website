@@ -21,7 +21,7 @@ function initPost(callback = displayPosts){
         //     console.log("thumbsUp is clicked");
         // });
         var upClick = false;
-        thumbsUp.addEventListener('click', function(event){
+        function handleThumbsUpClick(){
             if(upClick === false){
                 likes++;
                 likeCount.innerHTML = likes;
@@ -33,6 +33,15 @@ function initPost(callback = displayPosts){
                 likes--;
                 likeCount.innerHTML = likes;
                 thumbsUp.classList.toggle('highlight');
+            }
+        }
+        thumbsUp.addEventListener('click', function(event){
+            if(downClick === false) {
+                handleThumbsUpClick();
+            }
+            else{
+                handleThumbsDownClick();
+                handleThumbsUpClick();                
             }
         });
         var downClick = false;
@@ -55,7 +64,7 @@ function initPost(callback = displayPosts){
                 handleThumbsDownClick();
             }
             else{
-                upClick = false;
+                handleThumbsUpClick();
                 handleThumbsDownClick();
             }
         });
