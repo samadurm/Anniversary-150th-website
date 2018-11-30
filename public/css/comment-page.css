@@ -1,6 +1,6 @@
 ﻿*{
     margin:0px;
-    padgood:0px;
+    padding:0px;
 }
 
 body{
@@ -37,8 +37,8 @@ background-color:#ecf5f7;
     margin-top:10px;
     margin-right:60px;
 	float:right;
-	padgood-top:5px;
-	padgood-left:5px;
+	padding-top:5px;
+	padding-left:5px;
 }
 
 #txt_pl{
