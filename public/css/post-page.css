@@ -5,6 +5,9 @@
 body {
     background-color: #fff0e6;
 }
+#posts-content{
+    display: inline-flex;
+}
 #post-container {
     background-color: white;
     margin:  10px;
