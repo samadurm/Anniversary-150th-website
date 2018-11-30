@@ -65,3 +65,24 @@ body {
     color: orange;
     text-shadow: 1px 1px 2px black; 
 }
+#like-count{
+    background: white;
+    border: 1px solid #e05f12;
+    padding: 3px;
+    font-size: 16px;
+    color: black;
+    font-weight:bold;
+}
+#dislike-count{
+    background: white;
+    border: 1px solid #e05f12;
+    padding: 3px;
+    font-size: 16px;
+    color: black;
+    font-weight:bold;
+    font-weight:bold;
+}
+.highlight{
+    color: orange;
+    font-size: 22px;
+}
