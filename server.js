@@ -92,7 +92,9 @@ app.get('*', function(req,res){
 
     if(!fileLoaded){
         res.status(404).render('404');
-        console.log("==ERROR: FILE NOT FOUND");
+        console.log("==ERROR: FILE NOT FOUND: ");
+        console.log("   ==FILE TYPE: ",fileType);
+        console.log("   ==FILE NAME: ", fileName);
     }
 });
 
