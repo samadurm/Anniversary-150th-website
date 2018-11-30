@@ -2,6 +2,8 @@
 $.getJSON('image-data.json',function(data){
 	$("#pic_img").attr('src',data[1].data);
 	$("#big_pic_img").attr('src',data[1].data);
+	$('#good_count').text(data[0].rating[0]);
+	$('#bad_count').text(data[0].rating[1]);
 })
 
 //Close big picture
