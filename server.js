@@ -91,7 +91,7 @@ app.get('*', function(req,res){
     }
 
     if(!fileLoaded){
-        res.status(404).sendFile(__dirname + "/public/html/404-page.html");
+        res.status(404).render('404');
         console.log("==ERROR: FILE NOT FOUND");
     }
 });
