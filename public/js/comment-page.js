@@ -1,8 +1,8 @@
-﻿function initComment(callback = displayPosts){
+﻿function initComment(){
     var jsonreq = new XMLHttpRequest();
     jsonreq.onreadystatechange = function(){
         if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-            callback(this.responseText);
+            displayPosts(this.responseText);
         }
         if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
             alert("error occured in loading image json");

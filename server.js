@@ -118,12 +118,12 @@ app.post('*',function(req,res){
                 throw err;
             }
             var data = JSON.parse(raw);
-			if(data[0].Comments){
-				data[0].Comments.push(req.body.newcomment);
+			if(data[0].comments){
+				data[0].comments.push(req.body.newcomment);
 			}
 			else{
-				data[0].Comments=[];
-				data[0].Comments.push(req.body.newcomment);
+				data[0].comments=[];
+				data[0].comments.push(req.body.newcomment);
 			}
 			
             var json = JSON.stringify(data,null,4);
@@ -138,7 +138,6 @@ app.post('*',function(req,res){
                 throw err;
             }
             var data = JSON.parse(raw);
-			console.log('参数为：'+req.body.goodCount+req.body.badCount)
 			if(data[0].rating){
 				data[0].rating[0]=req.body.goodCount;
 				data[0].rating[1]=req.body.badCount;
