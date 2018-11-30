@@ -1,39 +1,35 @@
 <div id="main" >
-    <div id="pic">
-        <div id="pic_box1">
-        <img id="pic_img" src="timg.jpg" onclick="showBigPic()"/>
-        </div>
-        <br />
-        <div id="good_bad">
-            <div class="good_bad_box1">
-                <img id="good_img" src="good.png" style="height:25px;width:auto" onclick="Good(true)" />
-            </div>
-            <div class="good_bad_box2">
-                <img id="bad_img" src="bad.png" style="height:25px;width:auto;margin-top:6px;" onclick="Bad(true)" />
-            </div>
-            
-        </div>
-    </div>
-
-    <div id="txt_main">
-        <!--<textarea id="TextArea" rows="13" cols="50"></textarea><br /><br /><br />-->
-        <div id="TextArea">
-
-        </div><br /><br />
-        <div>
-            <input id="btn_ok" type="submit" value="+"  onclick="comment()"/>
-            <input id="txt_pl" type="text" />&nbsp;&nbsp;&nbsp;
-            
-            
-        </div>
-        
-    </div>
-
-    
+		<div id="pic">
+			<div id="pic_box1">
+			<img id="pic_img" src={{src}} onclick="showBigPic()"/>
+			</div>
+			<br />
+		</div>
+		<div id="txt_main">
+			<!--<textarea id="TextArea" rows="13" cols="50"></textarea><br /><br /><br />-->
+			<div id="TextArea">
+			</div>
+			<br />
+			<div id="good_bad">
+				<div class="good_bad_box1">
+					<img id="good_img" src="good.png" style="height:25px;width:23px" onclick="Good(true)" />
+					<label id="good_count">{{goodCount}}</label>
+				</div>
+				<div class="good_bad_box2">
+					<img id="bad_img" src="bad.png" style="height:25px;width:23px;" onclick="Bad(true)" />
+					<label id="bad_count">{{badCount}}</label>
+				</div> 
+			</div>
+			<div style="min-width:400px;margin-top:30px;">
+				<input id="commentator" value="John"/>
+				<input id="txt_pl" type="text" />
+				<input id="btn_ok" type="submit" value="+"  onclick="comment()"/>&nbsp;&nbsp;&nbsp;
+			</div>
+		</div>
 </div>
-
-
-<div id="modelDiv" style="width: 90%; height: 80%; background-color: #fbfafd; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);  border-top-left-radius: 10px; border-top-right-radius: 10px; display:none">
-    <img id="big_pic_img" src="Images/timg.jpg" />
+<div id="modelDiv" style="background-color: #fbfafd; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);  border-top-left-radius: 10px; border-top-right-radius: 10px; display:none;z-index:10000">
+    <div>
+		<img id="big_pic_img" src="" />
+	</div>
 </div>
-
+<div id="cover"></div>
