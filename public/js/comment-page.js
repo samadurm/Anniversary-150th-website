@@ -2,7 +2,7 @@
     var jsonreq = new XMLHttpRequest();
     jsonreq.onreadystatechange = function(){
         if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-            displayPosts(this.responseText);
+            displayComments(this.responseText);
         }
         if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
             alert("error occured in loading image json");
@@ -25,7 +25,7 @@ $(document).click(function (e) {
 }
 
 
-function displayPosts(jsonInfo){
+function displayComments(jsonInfo){
 	
     var imgData = JSON.parse(jsonInfo);
 	if(imgData[0].rating){

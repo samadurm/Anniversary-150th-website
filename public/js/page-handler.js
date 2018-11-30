@@ -1,5 +1,5 @@
 document.getElementById("home-button").addEventListener('click',function(){
-    loadPage(this.getAttribute("loadedpage"));
+    loadPage(this.getAttribute("loadedpage"),initHome);
 });
 
 document.getElementById("post-button").addEventListener('click',function(){
