@@ -72,6 +72,15 @@ function initPost(callback = displayPosts){
     
     jsonreq.open('GET','image-data.json',true);
     jsonreq.send();
+
+
+    //added by Kevin Dong: add event listener to picture so that it goes to comment page
+    var posts = document.getElementsByClassName('drawing-post');
+    Array.prototype.forEach.call(posts, function(ele){
+        ele.addEventListener('click', function(){
+            loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+        });
+    });
 }
 
 function displayPosts(jsonInfo){

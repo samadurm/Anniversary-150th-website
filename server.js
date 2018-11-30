@@ -16,7 +16,7 @@ const portOptions = {
 var app = express();
 app.use(bodyparser.json({'limit' : '10mb'}));
 
-app.engine('handlebars', exphbrs({ defaultLayout: 'main' }));
+app.engine('handlebars', exphbrs());
 app.set('view engine', 'handlebars');
 
 app.get('*', function(req,res){
@@ -118,12 +118,12 @@ app.post('*',function(req,res){
                 throw err;
             }
             var data = JSON.parse(raw);
-			if(data[0].comments){
-				data[0].comments.push(req.body.newcomment);
+			if(data[req.body.idx].comments){
+				data[req.body.idx].comments.push(req.body.newcomment);
 			}
 			else{
-				data[0].comments=[];
-				data[0].comments.push(req.body.newcomment);
+				data[req.body.idx].comments=[];
+				data[req.body.idx].comments.push(req.body.newcomment);
 			}
 			
             var json = JSON.stringify(data,null,4);
@@ -138,14 +138,14 @@ app.post('*',function(req,res){
                 throw err;
             }
             var data = JSON.parse(raw);
-			if(data[0].rating){
-				data[0].rating[0]=req.body.goodCount;
-				data[0].rating[1]=req.body.badCount;
+			if(data[req.body.idx].rating){
+				data[req.body.idx].rating[0]=req.body.goodCount;
+				data[req.body.idx].rating[1]=req.body.badCount;
 			}
 			else{
-				data[0].rating=[];
-				data[0].rating[0]=req.body.goodCount;
-				data[0].rating[1]=req.body.badCount;
+				data[req.body.idx].rating=[];
+				data[req.body.idx].rating[0]=req.body.goodCount;
+				data[req.body.idx].rating[1]=req.body.badCount;
 			}
 			
 			

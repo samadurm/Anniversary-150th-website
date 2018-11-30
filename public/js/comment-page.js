@@ -1,8 +1,10 @@
-﻿function initComment(){
+﻿var commentIDX = 0;
+
+function initComment(id = null){
     var jsonreq = new XMLHttpRequest();
     jsonreq.onreadystatechange = function(){
         if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-            displayComments(this.responseText);
+            displayComments(this.responseText,id);
         }
         if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
             alert("error occured in loading image json");
@@ -25,20 +27,26 @@ $(document).click(function (e) {
 }
 
 
-function displayComments(jsonInfo){
-	
-    var imgData = JSON.parse(jsonInfo);
-	if(imgData[0].rating){
-		$("#good_count").html(imgData[0].rating[0]);
-		$("#bad_count").html(imgData[0].rating[1]);
+function displayComments(jsonInfo,id){
+	var imgData = JSON.parse(jsonInfo);
+	if(id){
+		$.each(imgData,function(index,value){
+			if(value.id == id){
+				commentIDX = index;
+			}
+		});
 	}
-	$("#pic_img").attr('src',imgData[0].data);
-	$("#pic_img").attr('data-title',imgData[0].title)
-	$("#pic_img").attr('data-creator',imgData[0].creator)
+	if(imgData[0].rating){
+		$("#good_count").html(imgData[commentIDX].rating[0]);
+		$("#bad_count").html(imgData[commentIDX].rating[1]);
+	}
+	$("#pic_img").attr('src',imgData[commentIDX].data);
+	$("#pic_img").attr('data-title',imgData[commentIDX].title)
+	$("#pic_img").attr('data-creator',imgData[commentIDX].creator)
 	
-	$("#big_pic_img").attr('src',imgData[0].data);
+	$("#big_pic_img").attr('src',imgData[commentIDX].data);
 	
-	var comments=imgData[0].Comments;
+	var comments=imgData[commentIDX].comments;
 	var commetHtml="";
 	$.each(comments,function(index,value){
 		commetHtml+=value+"<br/><br/>"
@@ -54,7 +62,7 @@ function comment() {
     var txt = $("#txt_pl").val();
     lasttext += name+":"+txt+'<br/><br>';
 	
-	var comment={"newcomment":name+":"+txt};
+	var comment={"newcomment":name+":"+txt,"idx" : commentIDX};
 	var postreq = new XMLHttpRequest();
 	postreq.onreadystatechange = function(){
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
@@ -140,7 +148,7 @@ function Bad(check) {
 }
 
 function SendAjax(goodCount,badCount,message){
-	var CommentCount={"goodCount":goodCount,"badCount":badCount};
+	var CommentCount={"goodCount":goodCount,"badCount":badCount,"idx" : commentIDX};
 	var postreq = new XMLHttpRequest();
 	postreq.onreadystatechange = function(){
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
