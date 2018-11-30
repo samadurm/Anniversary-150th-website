@@ -1,8 +1,11 @@
 const fs = require("fs");
 
+const mongodbCLient = require('mongodb').MongoClient;
 const express = require('express');
 const bodyparser = require('body-parser');
 const exphbrs = require('express-handlebars');
+
+// Once We get Our Mongo Server:mongodb://<username>:<password>@<hostName>:<port>/<database>
 
 const cssFolder = fs.readdirSync("./public/css");
 const jsFolder = fs.readdirSync("./public/js");
@@ -36,7 +39,7 @@ app.get('*', function(req,res){
         fileName = nameArray[nameArray.length-1];
         renderName = fileName.split('.')[0];
     }
-	
+
     var fileLoaded = false;
     if(fileType == 'html'){
         var postData = fs.readFileSync('./public/image-data.json');
@@ -125,7 +128,7 @@ app.post('*',function(req,res){
 				data[req.body.idx].comments=[];
 				data[req.body.idx].comments.push(req.body.newcomment);
 			}
-			
+
             var json = JSON.stringify(data,null,4);
             fs.writeFile(__dirname + '/public/image-data.json',json,function(){
                 res.status(200).send("Image comment successfully");
@@ -147,8 +150,8 @@ app.post('*',function(req,res){
 				data[req.body.idx].rating[0]=req.body.goodCount;
 				data[req.body.idx].rating[1]=req.body.badCount;
 			}
-			
-			
+
+
             var json = JSON.stringify(data,null,4);
             fs.writeFile(__dirname + '/public/image-data.json',json,function(){
                 res.status(200).send("Image good or bad successfully");
