@@ -26,12 +26,13 @@ app.get('*', function(req,res){
         fileType = 'html';
         fileName = 'skeleton.html';
     }else{
-        fileType = req.url.split(".")[1];
-        fileName = req.url.split("/")[1];
+		var typeArray=req.url.split(".");
+		var nameArray=req.url.split("/")
+        fileType = typeArray[typeArray.length-1];
+        fileName = nameArray[nameArray.length-1];
     }
-
+	
     var fileLoaded = false;
-
     if(fileType == 'html'){
         for(var i = 0; i < htmlFolder.length; i++){
             if(htmlFolder[i] == fileName){
@@ -68,7 +69,7 @@ app.get('*', function(req,res){
                 break;
             }
         }
-    }else if(fileType == 'jpg' || fileType == 'JPG'){
+    }else if(fileType == 'jpg' || fileType == 'JPG'||fileType == 'jpg'){
         for(var i = 0; i < resFolder.length; i++){
             if(resFolder[i] == fileName){
                 res.status(200).sendFile(__dirname + '/public/res/' + resFolder[i]);

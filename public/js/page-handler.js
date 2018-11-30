@@ -11,16 +11,16 @@ document.getElementById("addpost-button").addEventListener('click',function(){
 });
 
 document.getElementById("search-button").addEventListener('click',function(){
-    loadPage(this.getAttribute("loadedpage"),initComment);
+    
 });
 
 
-function loadPage(path,callback = function(){}){
+function loadPage(path,callback = function(){},idx = null){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
             document.getElementById("subpage-holder").innerHTML = this.responseText;
-            callback();
+            callback(idx);
         }
         if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
             alert("error occured in loading page");

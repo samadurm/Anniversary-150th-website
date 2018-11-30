@@ -4,11 +4,13 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start" : "node server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.12",
     "jsonfile": "^5.0.0"
   }
 }

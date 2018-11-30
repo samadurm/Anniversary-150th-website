@@ -261,6 +261,8 @@ function initAddpost(){
             var postInfo = {};
             postInfo.title = document.getElementById('title-post-input').value;
             postInfo.creator = document.getElementById('creator-post-input').value;
+            postInfo.comments = [];
+            postInfo.rating = [0,0];
             postInfo.data = canvas.toDataURL();
             var postreq = new XMLHttpRequest();
             postreq.onreadystatechange = function(){
