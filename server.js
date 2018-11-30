@@ -112,7 +112,52 @@ app.post('*',function(req,res){
             });
         });
     }
+	else if(req.url == '/comment'){
+        fs.readFile(__dirname + '/public/image-data.json','utf8',function(err,raw){
+            if(err){
+                throw err;
+            }
+            var data = JSON.parse(raw);
+			if(data[0].Comments){
+				data[0].Comments.push(req.body.newcomment);
+			}
+			else{
+				data[0].Comments=[];
+				data[0].Comments.push(req.body.newcomment);
+			}
+			
+            var json = JSON.stringify(data,null,4);
+            fs.writeFile(__dirname + '/public/image-data.json',json,function(){
+                res.status(200).send("Image comment successfully");
+            });
+        });
+    }
+	else if(req.url == '/CommentCount'){
+        fs.readFile(__dirname + '/public/image-data.json','utf8',function(err,raw){
+            if(err){
+                throw err;
+            }
+            var data = JSON.parse(raw);
+			console.log('参数为：'+req.body.goodCount+req.body.badCount)
+			if(data[0].rating){
+				data[0].rating[0]=req.body.goodCount;
+				data[0].rating[1]=req.body.badCount;
+			}
+			else{
+				data[0].rating=[];
+				data[0].rating[0]=req.body.goodCount;
+				data[0].rating[1]=req.body.badCount;
+			}
+			
+			
+            var json = JSON.stringify(data,null,4);
+            fs.writeFile(__dirname + '/public/image-data.json',json,function(){
+                res.status(200).send("Image good or bad successfully");
+            });
+        });
+    }
 });
+
 
 app.listen(portOptions, function(err){
     if(err){
