@@ -1,11 +1,15 @@
+<div id = main-div>
 <div class = main-browse-box>
   <div class = bigger-browse-box>
     <div class = box-for-content-same>
       <h2 class = browse-header-content>  Most Likes: </h2>
           <hr>
-          <div class = browse-boxes>
-
-          </div>
+          <section id = posts-content>
+              <!-- the below will be abstracted out by handlebars -->
+              {{#each posts}}
+                  {{> post}}
+              {{/each}}
+          </section>
         </div>
       </div>
 
@@ -13,9 +17,12 @@
         <div class = box-for-content-same>
           <h2 class = browse-header-content>  Most Dislikes: </h2>
               <hr>
-              <div class = browse-boxes>
-
-              </div>
+              <section id = posts-content>
+                  <!-- the below will be abstracted out by handlebars -->
+                  {{#each posts}}
+                      {{> post}}
+                  {{/each}}
+              </section>
             </div>
           </div>
 
@@ -25,10 +32,13 @@
             <div class = box-for-content-same>
               <h2 class = browse-header-content>  Random: </h2>
                   <hr>
-                  <div class = browse-boxes>
-
-
-                  </div>
+                  <section id = posts-content>
+                      <!-- the below will be abstracted out by handlebars -->
+                      {{#each posts}}
+                          {{> post}}
+                      {{/each}}
+                  </section>
                 </div>
               </div>
   </div>
+</div>
