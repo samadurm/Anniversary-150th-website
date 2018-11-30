@@ -38,14 +38,16 @@ header {
 
 .site-title hover{
 
+  cursor: context-menu;
+
   background-color: black;
 
 }
 
-
 .nav-list {
 
   background-color: black;
+
 
   overflow: hidden;
 
@@ -64,6 +66,8 @@ header {
   text-decoration: none;
 
   font-size: 24px;
+
+  cursor: pointer;
 
 }
 

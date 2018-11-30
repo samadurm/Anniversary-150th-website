@@ -10,8 +10,12 @@ document.getElementById("addpost-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"),initAddpost);
 });
 
+document.getElementById("browse-button").addEventListener('click',function(){
+    loadPage(this.getAttribute("loadedpage"));
+});
+
 document.getElementById("search-button").addEventListener('click',function(){
-    
+
 });
 
 
