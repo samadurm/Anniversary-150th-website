@@ -8,7 +8,7 @@ body {
 #post-container {
     background-color: white;
     margin:  10px;
-    box-shadow: 10px 10px 20px black;
+    box-shadow: 10px 10px 20px grey;
     width: 310px;
     height: auto;
 }
@@ -19,18 +19,19 @@ body {
 }
 #info-container {
     padding: 10px;
-    background-color: #B2ADAD;
+    background-color: black;
     border-top: 1px solid black;
 }
 #title{
     display: inline;
-    color: whitesmoke;
+    color: #e05f12;
     text-shadow: 1px 1px 2px black; 
     font-weight: bold;
 }
 #author{
     float: center;
     font-family: 'Ranga', cursive;
+    font-size: 20px;
 }
 #author-name-container{
     padding:10px;
@@ -53,11 +54,9 @@ body {
 
 #thumbs-container{
     position: right;
-    color: whitesmoke;
+    color: #e05f12;
     float: right;
-}
-#thumbs{
-    font-size: 20px
+    font-size: 20px;
 }
 #thumbs:hover{
     color: orange;

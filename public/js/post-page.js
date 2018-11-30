@@ -1,4 +1,5 @@
 
+
 function initPost(callback = displayPosts){
     var jsonreq = new XMLHttpRequest();
     jsonreq.onreadystatechange = function(){
@@ -8,7 +9,17 @@ function initPost(callback = displayPosts){
         if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
             alert("error occured in loading image json");
         }
+        
+        var likes = 0;
+        var thumbsUp = document.getElementById('thumbs-up');
+        var likeCount = document.getElementById('like-count');
+
+        thumbsUp.addEventListener('click', function(event){
+            likes++;
+            console.log(likes);
+});
     };
+    
     jsonreq.open('GET','image-data.json',true);
     jsonreq.send();
 }
@@ -21,3 +32,4 @@ function displayPosts(jsonInfo){
         document.getElementById('main-div').appendChild(image);
     });
 }
+

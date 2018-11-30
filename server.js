@@ -1,10 +1,9 @@
-const http = require("http");
 const fs = require("fs");
 
 const express = require('express');
 const bodyparser = require('body-parser');
+const exphbrs = require('express-handlebars');
 
-const htmlFolder = fs.readdirSync("./public/html");
 const cssFolder = fs.readdirSync("./public/css");
 const jsFolder = fs.readdirSync("./public/js");
 const resFolder = fs.readdirSync("./public/res");
@@ -17,31 +16,34 @@ const portOptions = {
 var app = express();
 app.use(bodyparser.json({'limit' : '10mb'}));
 
+app.engine('handlebars', exphbrs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
 app.get('*', function(req,res){
 
     var fileType;
     var fileName;
+    var renderName;
 
     if(req.url == '/'){
         fileType = 'html';
         fileName = 'skeleton.html';
+        renderName = 'skeleton';
     }else{
 		var typeArray=req.url.split(".");
 		var nameArray=req.url.split("/")
         fileType = typeArray[typeArray.length-1];
         fileName = nameArray[nameArray.length-1];
+        renderName = fileName.split('.')[0];
     }
 	
     var fileLoaded = false;
     if(fileType == 'html'){
-        for(var i = 0; i < htmlFolder.length; i++){
-            if(htmlFolder[i] == fileName){
-                res.status(200).sendFile(__dirname + '/public/html/' + htmlFolder[i]);
-                console.log('==loaded: ' + htmlFolder[i]);
-                fileLoaded = true;
-                break;
-            }
-        }
+        var postData = fs.readFileSync('./public/image-data.json');
+        var posts = JSON.parse(postData);
+        res.status(200).render(renderName,{posts : posts});
+        console.log('==loaded: ' + fileName);
+        fileLoaded = true;
     }else if(fileType == 'css'){
         for(var i = 0; i < cssFolder.length; i++){
             if(cssFolder[i] == fileName){
@@ -89,7 +91,7 @@ app.get('*', function(req,res){
     }
 
     if(!fileLoaded){
-        res.status(404).sendFile(__dirname + "/public/html/404-page.html");
+        res.status(404).render('404');
         console.log("==ERROR: FILE NOT FOUND");
     }
 });

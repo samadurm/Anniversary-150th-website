@@ -19,9 +19,29 @@
 
 }
 
+li {
+
+  padding: 10px;
+
+  margin: 10px;
+
+
+}
+
 .box {
 
     background-color: black;
+}
+
+#bullets {
+
+  display: inline-block;
+
+  margin: 0px;
+
+  padding: 0px;
+
+
 }
 
 .dropdown {
@@ -30,7 +50,7 @@
 
     padding: 10px;
 
-    max-width: 375px;
+    max-width: 360px;
 
     margin: 7px 5px 5px 5px;
 
@@ -64,7 +84,14 @@ h2 {
 
 }
 
+.description:hover {
+
+  cursor: context-menu;
+
+}
+
 .bigger-box {
+  display: top-left;
 
     display: inline-block;
 
@@ -72,6 +99,12 @@ h2 {
 }
 
 .bullets {
+
+  margin: 0px;
+
+  padding: 0px;
+
+  cursor: context-menu;
 
   display: inline-block;
 
@@ -97,6 +130,8 @@ h2 {
 }
 
 .pic {
+
+    text-align: center;
 
     height: 250px;
 
