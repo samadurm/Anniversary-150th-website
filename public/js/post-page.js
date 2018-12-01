@@ -23,15 +23,15 @@ function initPost(callback = displayPosts){
         var upClick = false;
         function handleThumbsUpClick(){
             if(upClick === false){
-                likes++;
+                // likes++;
                 // likeCount++;
-                likeCount.value = likeCount.value + likes;
+                // likeCount.value = likeCount.value + likes;
                 upClick = true;
                 thumbsUp.classList.toggle('highlight');
             }
             else{
                 upClick = false;
-                likeCount--;
+                // likeCount--;
                 // likeCount = likeCount;
                 thumbsUp.classList.toggle('highlight');
             }
@@ -48,14 +48,14 @@ function initPost(callback = displayPosts){
         var downClick = false;
         function handleThumbsDownClick() {
             if(downClick === false){
-                dislikeCount++;
-                dislikeCount. = dislikeCount;
+                // dislikeCount++;
+                // dislikeCount. = dislikeCount;
                 downClick = true;
                 thumbsDown.classList.toggle('highlight');
             }
             else {
                 downClick = false;
-                dislikeCount--;
+                // dislikeCount--;
                 // dislikeCount.value = dislikeCount;
                 thumbsDown.classList.toggle('highlight');
             }
