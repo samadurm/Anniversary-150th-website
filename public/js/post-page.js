@@ -23,15 +23,25 @@ function initPost(callback = displayPosts){
         var upClick = false;
         function handleThumbsUpClick(){
             if(upClick === false){
+<<<<<<< HEAD
                 // likes++;
                 // likeCount++;
                 // likeCount.value = likeCount.value + likes;
+=======
+                likes++;
+                // likeCount++;
+                likeCount.value = likeCount.value + likes;
+>>>>>>> 6e33b15f435ad330a48de192df3d6fafe40781dc
                 upClick = true;
                 thumbsUp.classList.toggle('highlight');
             }
             else{
                 upClick = false;
+<<<<<<< HEAD
                 // likeCount--;
+=======
+                likeCount--;
+>>>>>>> 6e33b15f435ad330a48de192df3d6fafe40781dc
                 // likeCount = likeCount;
                 thumbsUp.classList.toggle('highlight');
             }
@@ -48,14 +58,23 @@ function initPost(callback = displayPosts){
         var downClick = false;
         function handleThumbsDownClick() {
             if(downClick === false){
+<<<<<<< HEAD
                 // dislikeCount++;
                 // dislikeCount. = dislikeCount;
+=======
+                dislikeCount++;
+                dislikeCount. = dislikeCount;
+>>>>>>> 6e33b15f435ad330a48de192df3d6fafe40781dc
                 downClick = true;
                 thumbsDown.classList.toggle('highlight');
             }
             else {
                 downClick = false;
+<<<<<<< HEAD
                 // dislikeCount--;
+=======
+                dislikeCount--;
+>>>>>>> 6e33b15f435ad330a48de192df3d6fafe40781dc
                 // dislikeCount.value = dislikeCount;
                 thumbsDown.classList.toggle('highlight');
             }
