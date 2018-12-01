@@ -17,7 +17,7 @@ function initComment(id = null){
 $(document).click(function (e) {
     var el = e.srcElement || e.target;
     if (el.id == "pic_img") {
-        
+
     }
     else {
 		$("#cover").fadeOut();
@@ -36,21 +36,23 @@ function displayComments(jsonInfo,id){
 			}
 		});
 	}
-	if(imgData[0].rating){
-		$("#good_count").html(imgData[commentIDX].rating[0]);
-		$("#bad_count").html(imgData[commentIDX].rating[1]);
+	if(imgData[commentIDX].goodRating){
+		$("#good_count").html(imgData[commentIDX].goodRating);
 	}
+  if(imgData[commentIDX].badRating){
+    $("#bad_count").html(imgData[commentIDX].badRating);
+  }
 	$("#pic_img").attr('src',imgData[commentIDX].data);
 	$("#pic_img").attr('data-title',imgData[commentIDX].title)
 	$("#pic_img").attr('data-creator',imgData[commentIDX].creator)
-	
+
 	$("#big_pic_img").attr('src',imgData[commentIDX].data);
-	
+
 	var comments=imgData[commentIDX].comments;
 	var commetHtml="";
 	$.each(comments,function(index,value){
 		commetHtml+=value+"<br/><br/>"
-	})		
+	})
 	$("#TextArea").html(commetHtml);
 }
 
@@ -61,7 +63,7 @@ function comment() {
 	var name=$("#commentator").val();
     var txt = $("#txt_pl").val();
     lasttext += name+":"+txt+'<br/><br>';
-	
+
 	var comment={"newcomment":name+":"+txt,"idx" : commentIDX};
 	var postreq = new XMLHttpRequest();
 	postreq.onreadystatechange = function(){
@@ -75,7 +77,7 @@ function comment() {
 	postreq.open('POST','comment',true);
 	postreq.setRequestHeader('Content-Type','application/json');
 	postreq.send(JSON.stringify(comment));
-	
+
     $("#TextArea").html(lasttext);
 }
 
@@ -86,17 +88,17 @@ function Good(check) {
         check = false;
 		var badCount=$("#bad_count").text();
 		var goodCount=$("#good_count").text();
-		
+
 		if($("#bad_img").attr('src')=='Images/bad_orang.png'){
 			badCount--;
 			$("#bad_count").text(badCount);
 		}
 		$("#good_img").attr("src", "Images/good_orang.png");
         $("#bad_img").attr("src", "Images/bad.png");
-		
+
 		goodCount++;
 		$("#good_count").text(goodCount);
-		
+
 		SendAjax(goodCount,badCount,"error occured in good image");
     }
     else {
@@ -107,7 +109,7 @@ function Good(check) {
 		var goodCount=$("#good_count").text();
 		goodCount--;
 		$("#good_count").text(goodCount);
-		
+
 		SendAjax(goodCount,badCount,"error occured in cancel good image");
     }
 
@@ -120,17 +122,17 @@ function Bad(check) {
         check = false;
 		var goodCount=$("#good_count").text();
 		var badCount=$("#bad_count").text();
-		
+
 		if($("#good_img").attr('src')=='Images/good_orang.png'){
 			goodCount--;
 			$("#good_count").text(goodCount);
 		}
         $("#bad_img").attr("src", "Images/bad_orang.png");
         $("#good_img").attr("src", "Images/good.png");
-		
+
 		badCount++;
 		$("#bad_count").text(badCount);
-		
+
 		SendAjax(goodCount,badCount,"error occured in bad image");
     }
     else {
@@ -138,10 +140,10 @@ function Bad(check) {
         $("#bad_img").attr("src", "Images/bad.png");
 		var goodCount=$("#good_count").text();
 		var badCount=$("#bad_count").text();
-		
+
 		badCount--;
 		$("#bad_count").text(badCount);
-		
+
 		SendAjax(goodCount,badCount,"error occured in cancel bad image");
     }
 
