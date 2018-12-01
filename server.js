@@ -151,6 +151,7 @@ app.post('*',function(req,res){
                 throw err;
             }
             var data = JSON.parse(raw);
+            // Changed by Matthew Added good/bad functionality for All Posts
 			if(data[req.body.idx].goodRating){
 				data[req.body.idx].goodRating=req.body.goodCount;
 			}
