@@ -112,13 +112,13 @@ function initAddpost(){
             drawing = false;
         }
     });
-    
+
     canvas.addEventListener("mouseleave", function(){
         drawing = false;
         drawingShape = false;
         preCtx.clearRect(0,0,canvasPre.width,canvasPre.height);
     });
-    
+
     canvas.addEventListener("mousedown", function(event){
         if(!drawingShape && (drawMode == 'circle'||drawMode == 'rect')){
             shapeCoordsStart = [event.offsetX,event.offsetY];
@@ -170,7 +170,7 @@ function initAddpost(){
             }
         }
     });
-    
+
     canvasOpacity.addEventListener("mousemove", function(event){
         if(event.buttons == 1){
            var opacity = (200-event.offsetY)/200;
@@ -218,7 +218,7 @@ function initAddpost(){
         ctx.lineWidth = this.value;
         document.getElementById("linewidth-range").value = this.value;
     };
-    
+
     document.getElementById("pen-button").addEventListener("click", function(){
         drawMode = 'pen';
         ctx.strokeStyle = rgba;
@@ -230,10 +230,10 @@ function initAddpost(){
         ctx.strokeStyle = 'rgba(255,255,255,1)';
         ctx.lineJoin = 'round';
     });
-    
+
     document.getElementById("reset-button").addEventListener("click", function(){
         ctx.clearRect(0,0,canvas.width,canvas.height);
-    }); 
+    });
 
     document.getElementById("circle-button").addEventListener("click", function(){
         drawMode = 'circle';
@@ -262,7 +262,8 @@ function initAddpost(){
             postInfo.title = document.getElementById('title-post-input').value;
             postInfo.creator = document.getElementById('creator-post-input').value;
             postInfo.comments = [];
-            postInfo.rating = [0,0];
+            postInfo.goodRating = 0;
+            postInfo.badRating = 0;
             postInfo.id = '_' + Math.random().toString(36).substr(2, 9);
             postInfo.data = canvas.toDataURL();
             var postreq = new XMLHttpRequest();

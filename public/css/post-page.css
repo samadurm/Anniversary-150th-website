@@ -29,7 +29,7 @@ body {
 #title{
     display: inline;
     color: #e05f12;
-    text-shadow: 1px 1px 2px black; 
+    text-shadow: 1px 1px 2px black;
     font-weight: bold;
 }
 #author{
@@ -44,7 +44,7 @@ body {
 }
 #title:hover{
     text-decoration: underline;
-    text-shadow: 1px 1px 2px black; 
+    text-shadow: 1px 1px 2px black;
     color: orange;
 }
 #main-div img {
@@ -64,7 +64,7 @@ body {
 }
 #thumbs:hover{
     color: orange;
-    text-shadow: 1px 1px 2px black; 
+    text-shadow: 1px 1px 2px black;
 }
 #like-count{
     background: white;
@@ -72,6 +72,7 @@ body {
     padding: 3px;
     font-size: 16px;
     color: black;
+    cursor: context-menu;
     font-weight:bold;
 }
 #dislike-count{
@@ -82,6 +83,7 @@ body {
     color: black;
     font-weight:bold;
     font-weight:bold;
+    cursor: context-menu;
 }
 .highlight{
     color: orange;

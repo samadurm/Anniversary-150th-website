@@ -1,6 +1,6 @@
 {
   "name": "cs290-final-website",
-  "description": "Website by Matthew, Gang Li, Kevin",
+  "description": "Website by Matthew, Gang Li, Kevin, and Micah",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {

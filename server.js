@@ -151,16 +151,20 @@ app.post('*',function(req,res){
                 throw err;
             }
             var data = JSON.parse(raw);
-			if(data[req.body.idx].rating){
-				data[req.body.idx].rating[0]=req.body.goodCount;
-				data[req.body.idx].rating[1]=req.body.badCount;
+			if(data[req.body.idx].goodRating){
+				data[req.body.idx].goodRating=req.body.goodCount;
 			}
 			else{
-				data[req.body.idx].rating=[];
-				data[req.body.idx].rating[0]=req.body.goodCount;
-				data[req.body.idx].rating[1]=req.body.badCount;
+				data[req.body.idx].goodRating;
+				data[req.body.idx].goodRating=req.body.goodCount;
 			}
-
+      if(data[req.body.idx].badRating){
+        data[req.body.idx].badRating=req.body.badCount;
+      }
+      else{
+        data[req.body.idx].badRating;
+        data[req.body.idx].badRating=req.body.badCount;
+      }
 
             var json = JSON.stringify(data,null,4);
             fs.writeFile(__dirname + '/public/image-data.json',json,function(){
