@@ -4,7 +4,11 @@ function initBrowse(id = null){
     var jsonreq = new XMLHttpRequest();
     jsonreq.onreadystatechange = function(){
         if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
+<<<<<<< HEAD
             filterLikes(this.responseText,id);
+=======
+            displayBrowse(this.responseText,id);
+>>>>>>> 9d6c81491802435ce191f996afcf51c0d82e027a
         }
         if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
             alert("error occured in loading image json");
@@ -14,8 +18,12 @@ function initBrowse(id = null){
     jsonreq.send();
 
 }
+<<<<<<< HEAD
 
   function filterLikes (jsonInfo,id) {
+=======
+    function displayBrowse(jsonInfo,id) {
+>>>>>>> 9d6c81491802435ce191f996afcf51c0d82e027a
     	var imgData = JSON.parse(jsonInfo);
     	if(id){
     		$.each(imgData,function(index,value){
