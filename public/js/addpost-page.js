@@ -262,6 +262,7 @@ function initAddpost(){
             postInfo.title = document.getElementById('title-post-input').value;
             postInfo.creator = document.getElementById('creator-post-input').value;
             postInfo.comments = [];
+            // Matthew Added good/bad functionality
             postInfo.goodRating = 0;
             postInfo.badRating = 0;
             postInfo.id = '_' + Math.random().toString(36).substr(2, 9);

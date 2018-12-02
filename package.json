@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "handlebars views/partials/post.handlebars -f public/js/post.js",
+    "prestrt": "npm run build",
+    "predev": "npm run build"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
