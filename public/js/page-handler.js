@@ -14,9 +14,9 @@ document.getElementById("browse-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"),initBrowse);
 });
 
-document.getElementById("search-button").addEventListener('click',function(){
-
-});
+// document.getElementById("search-button").addEventListener('click',function(){
+//
+// });
 
 
 function loadPage(path,callback = function(){},id = null){
