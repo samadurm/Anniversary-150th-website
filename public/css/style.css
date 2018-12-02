@@ -35,6 +35,8 @@ header {
 
     cursor: context-menu;
 
+    overflow: hidden;
+
 }
 
 .site-title hover{

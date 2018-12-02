@@ -8,7 +8,13 @@
 
 .bigger-browse-box {
 
+  max-width: 360px;
+
+  margin: 50px;
+
   display: inline-block;
+
+  align-content: center;
 
 }
 

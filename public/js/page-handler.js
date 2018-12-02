@@ -11,7 +11,7 @@ document.getElementById("addpost-button").addEventListener('click',function(){
 });
 
 document.getElementById("browse-button").addEventListener('click',function(){
-    loadPage(this.getAttribute("loadedpage"));
+    loadPage(this.getAttribute("loadedpage"),initBrowse);
 });
 
 document.getElementById("search-button").addEventListener('click',function(){

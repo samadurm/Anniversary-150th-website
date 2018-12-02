@@ -1,5 +1,3 @@
-
-
 function initPost(callback = displayPosts){
     var jsonreq = new XMLHttpRequest();
     jsonreq.onreadystatechange = function(){
@@ -14,8 +12,8 @@ function initPost(callback = displayPosts){
         var dislikes = 0;
         var thumbsUp = document.getElementById('thumbs-up');
         var thumbsDown = document.getElementById('thumbs-down');
-        var likeCount = document.getElementById('like-count').value;
-        var dislikeCount = document.getElementById('dislike-count').value;
+        var likeCount = document.getElementById('like-count');
+        var dislikeCount = document.getElementById('dislike-count');
 
         // thumbsUp.on('click', function() {
         //     console.log("thumbsUp is clicked");
@@ -23,16 +21,15 @@ function initPost(callback = displayPosts){
         var upClick = false;
         function handleThumbsUpClick(){
             if(upClick === false){
-                // likes++;
-                // likeCount++;
-                // likeCount.value = likeCount.value + likes;
+                likes++;
+                likeCount.innerHTML = likes;
                 upClick = true;
                 thumbsUp.classList.toggle('highlight');
             }
             else{
                 upClick = false;
-                // likeCount--;
-                // likeCount = likeCount;
+                likes--;
+                likeCount.innerHTML = likes;
                 thumbsUp.classList.toggle('highlight');
             }
         }
@@ -48,15 +45,15 @@ function initPost(callback = displayPosts){
         var downClick = false;
         function handleThumbsDownClick() {
             if(downClick === false){
-                // dislikeCount++;
-                // dislikeCount. = dislikeCount;
+                dislikes++;
+                dislikeCount.innerHTML = dislikes;
                 downClick = true;
                 thumbsDown.classList.toggle('highlight');
             }
             else {
                 downClick = false;
-                // dislikeCount--;
-                // dislikeCount.value = dislikeCount;
+                dislikes--;
+                dislikeCount.innerHTML = dislikes;
                 thumbsDown.classList.toggle('highlight');
             }
         }

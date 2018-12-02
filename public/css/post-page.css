@@ -5,6 +5,7 @@
 body {
     background-color: #fff0e6;
 }
+
 #posts-content{
     display: inline-flex;
     flex-wrap: wrap;
@@ -16,6 +17,11 @@ body {
     width: 310px;
     height: auto;
 }
+
+#drawing-container:hover {
+    cursor: pointer;
+}
+
 #drawing-container {
     display: block;
     width: 300px;
@@ -27,6 +33,7 @@ body {
     border-top: 1px solid black;
 }
 #title{
+    cursor: pointer;
     display: inline;
     color: #e05f12;
     text-shadow: 1px 1px 2px black;
