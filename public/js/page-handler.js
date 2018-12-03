@@ -23,8 +23,9 @@ function loadPage(path,callback = function(){},id = null){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-            document.getElementById("subpage-holder").innerHTML = this.responseText;
-            callback(id);
+            loadAnimation(this.responseText).then(()=>{
+                callback(id);
+            });
         }
         if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
             alert("error occured in loading page");
@@ -32,4 +33,17 @@ function loadPage(path,callback = function(){},id = null){
     };
     xhttp.open("GET",path,true);
     xhttp.send();
+}
+
+function loadAnimation(newText){
+    return new Promise(function(resolve){
+        $('#subpage-holder').fadeOut(500);
+        setTimeout(function(){
+            document.getElementById("subpage-holder").innerHTML = newText;
+            $('#subpage-holder').fadeIn(500);
+        },500);
+        setTimeout(function(){
+           resolve();
+        },1000);
+    });
 }
