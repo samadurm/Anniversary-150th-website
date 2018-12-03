@@ -63,14 +63,11 @@ header {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 ::placeholder{
 
   color: #f46b1a;
 
 }
-=======
->>>>>>> 368dcda7dcc61a506b2dd710b464c058dca006e7
 
 .nav-list input[type=text]:focus {
     outline-color: #f46b1a;

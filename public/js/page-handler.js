@@ -41,9 +41,7 @@ function loadAnimation(newText){
         setTimeout(function(){
             document.getElementById("subpage-holder").innerHTML = newText;
             $('#subpage-holder').fadeIn(500);
+            resolve();
         },500);
-        setTimeout(function(){
-           resolve();
-        },1000);
     });
 }

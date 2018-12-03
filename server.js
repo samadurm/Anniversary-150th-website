@@ -29,7 +29,7 @@ const portOptions = {
 var app = express();
 app.use(bodyparser.json({'limit' : '10mb'}));
 
-app.engine('handlebars', exphbrs());
+app.engine('handlebars', exphbrs({defaultLayout : 'main'}));
 app.set('view engine', 'handlebars');
 
 app.get('*', function(req,res){
@@ -54,7 +54,11 @@ app.get('*', function(req,res){
     if(fileType == 'html'){
         var postData = fs.readFileSync('./public/image-data.json');
         var posts = JSON.parse(postData);
-        res.status(200).render(renderName,{posts : posts});
+        if(renderName == 'skeleton'){
+            res.status(200).render(renderName,{posts : posts});
+        }else{
+            res.status(200).render(renderName,{posts : posts,layout : false});
+        }
         console.log('==loaded: ' + fileName);
         fileLoaded = true;
     }else if(fileType == 'css'){

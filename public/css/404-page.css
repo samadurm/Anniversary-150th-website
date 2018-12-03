@@ -1,0 +1,21 @@
+.err-div-first{
+  text-align: center;
+  display: block;
+  color: black;
+  font-family: 'Rubik', sans-serif;
+  font-size: 150px;
+  padding-top:30px;
+  padding-bottom:10px;
+
+}
+
+.err-div-second{
+  text-align: center;
+  display: block;
+  color: black;
+  font-family: 'Rubik', sans-serif;
+  font-size: 30px;
+  padding-top:10px;
+  padding-bottom:10px;
+
+}
