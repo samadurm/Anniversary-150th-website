@@ -32,6 +32,29 @@ app.use(bodyparser.json({'limit' : '10mb'}));
 app.engine('handlebars', exphbrs({defaultLayout : 'main'}));
 app.set('view engine', 'handlebars');
 
+app.get('/:post', function(req,res,next){
+    var postData = fs.readFileSync('./public/image-data.json');
+    var posts = JSON.parse(postData);
+    var match = false;
+    posts.forEach(post=>{
+        if(post.title == req.params.post || post.creator == req.params.post){
+            var opts = {
+                data : post.data,
+                goodRating : post.goodRating,
+                badRating : post.badRating,
+                text : post.comments
+            };
+            if(!match){
+                res.status(200).render('comment-page',opts);
+                match = true;
+            }
+        }
+    });
+    if(!match){
+        next();
+    }
+});
+
 app.get('*', function(req,res){
 
     var fileType;

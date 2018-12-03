@@ -12,7 +12,6 @@
     var darkCtx;
     var preCtx;
     var drawMode;
-
 function initAddpost(){
     canvas = document.getElementById("addpost-canvas");
     canvasPre = document.getElementById("preview-canvas");
@@ -259,8 +258,10 @@ function initAddpost(){
             alert('Canvas is empty');
         }else{
             var postInfo = {};
-            postInfo.title = document.getElementById('title-post-input').value;
-            postInfo.creator = document.getElementById('creator-post-input').value;
+            var title = document.getElementById('title-post-input').value;
+            var creator = document.getElementById('creator-post-input').value;
+            postInfo.title = title.replace(/^\s+|\s+$/gm,'');
+            postInfo.creator = creator.replace(/^\s+|\s+$/gm,'');
             postInfo.comments = [];
             // Matthew Added good/bad functionality
             postInfo.goodRating = 0;
