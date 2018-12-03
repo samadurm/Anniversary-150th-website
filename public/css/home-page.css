@@ -120,11 +120,11 @@ li {
 
     outline: 3px solid #e05f12;
 
-    padding: 10px;
+    max-width: 600px;
 
-    max-width: 500px;
+    margin: 7px 10px 75px 130px;
 
-    margin: 7px 5px 5px 5px;
+    padding: 35px;
 
     display: inline-block;
 
@@ -136,13 +136,15 @@ li {
 
     outline: 3px solid #e05f12;
 
-    padding: 10px;
+    padding: 30px;
 
     min-width: 600px;
 
-    margin: 7px 5px 5px 5px;
+    margin: 7px 15px 15px 140px;
 
     display: inline-block;
+
+    float: center;
 
 }
 
@@ -170,7 +172,7 @@ display: inline-block;
 
 vertical-align: top;
 
-width: 370px;
+width: 450px;
 
 }
 

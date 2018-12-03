@@ -2,6 +2,10 @@ document.getElementById("home-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"),initHome);
 });
 
+// document.getElementById("home-button").addEventListener('click',function(){
+//     loadPage(this.getAttribute("loadedpage"),initHome);
+// });
+
 document.getElementById("post-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"),initPost);
 });
@@ -13,6 +17,14 @@ document.getElementById("addpost-button").addEventListener('click',function(){
 document.getElementById("browse-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"),initBrowse);
 });
+
+document.getElementById("search-button").addEventListener('click',function(){
+    loadPage(this.getAttribute("loadedpage"),initSearch);
+});
+
+// document.getElementById("browse-button").addEventListener('click',function(){
+//     loadPage(this.getAttribute("loadedpage"),initBrowse);
+// });
 
 // document.getElementById("search-button").addEventListener('click',function(){
 //

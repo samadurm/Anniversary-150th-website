@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
 
+
         <title>OSU 150</title>
 
         <link rel="stylesheet" href="style.css">
@@ -19,6 +20,7 @@
         <link rel="stylesheet" href="comment-page.css">
         <link rel="stylesheet" href="home-page.css">
         <link rel="stylesheet" href="browse-page.css">
+        <link rel"stylesheet" href = "search-page.css">
         <link rel="stylesheet" href="404-page.css">
 
 
@@ -30,10 +32,12 @@
         <script src="comment-page.js" charset="utf-8" defer></script>
         <script src="home-page.js" charset="utf-8" defer></script>
         <script src="browse-page.js" charset="utf-8" defer> </script>
+        <script src="search-page.js" charset="utf-8" defer> </script>
+        <!-- <script src="main.js" charset="utf-8" defer></script> -->
         <script src="jquery-1.8.2.min.js"></script>
     </head>
 
-    <body>  
+    <body>
         <header>
             <h1 class = 'site-title'>OSU 150</h1>
             <div class = "nav-list">
@@ -41,10 +45,13 @@
                 <a id="post-button" loadedpage="post-page.html"> All Posts <i class = "fas fa-portrait"></i></a>
                 <a id="addpost-button" loadedpage="addpost-page.html">Add Post <i class="fas fa-plus-square"></i></a>
                 <a id="browse-button" loadedpage="browse-page.html">Browse <i class="fab fa-readme"></i></a></a>
-                <input type="text" placeholder="Search... By Author or Title"> <!--<i class = "fas fa-search"></i> -->
+                <input type="text" placeholder="Search... By Author or Title" name="look-for-values">
+                <a id = "search-button" loadedpage= "search-page.html"> <i class="fas fa-search"></i></a>
             </div>
         </header>
 
         <div id="subpage-holder">{{{body}}}</div>
+
+
     </body>
 </html>

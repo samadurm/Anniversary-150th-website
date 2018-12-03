@@ -25,16 +25,11 @@ function initBrowse(id = null){
     		});
     	}
 
-        console.log(imgData);
-
         findMostLikes ( imgData );
         //
         findMostDisLikes ( imgData );
 
         findRandom ( imgData );
-
-        console.log(imgData);
-
 
 }
 
