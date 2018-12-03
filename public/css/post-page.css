@@ -21,7 +21,11 @@ body {
 #drawing-container:hover {
     cursor: pointer;
 }
-
+.enlargePhoto{
+    transition: all .3s ease-in;
+    opacity: 1;
+    transform: scale(1.2);
+}
 #drawing-container {
     display: block;
     width: 300px;
@@ -62,6 +66,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
 
 #thumbs-container{
     position: right;

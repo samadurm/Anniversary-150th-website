@@ -14,6 +14,7 @@ function initPost(callback = displayPosts){
         var thumbsDown = document.getElementById('thumbs-down');
         var likeCount = document.getElementById('like-count');
         var dislikeCount = document.getElementById('dislike-count');
+        var postContainer = document.getElementById('post-container')
 
         // thumbsUp.on('click', function() {
         //     console.log("thumbsUp is clicked");
@@ -66,6 +67,10 @@ function initPost(callback = displayPosts){
                 handleThumbsDownClick();
             }
         });
+        postContainer.addEventListener('click', function(event){
+            postContainer.classList.toggle('enlargePhoto');
+        });
+        
     };
 
     jsonreq.open('GET','image-data.json',true);
@@ -76,6 +81,12 @@ function initPost(callback = displayPosts){
     var posts = document.getElementsByClassName('drawing-post');
     Array.prototype.forEach.call(posts, function(ele){
         ele.addEventListener('click', function(){
+            loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+        });
+    });
+    var titleName = document.getElementById('title');
+    Array.prototype.forEach.call(titleName, function(ele){
+        titleName.addEventListener('click', function(){
             loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
         });
     });
