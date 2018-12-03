@@ -2,7 +2,11 @@ header {
 
   color: white;
 
-  background: url('./IMG_0084.JPG')
+  background: url('./IMG_0084.JPG');
+
+  background-repeat: no-repeat;
+  
+  background-attachment: fixed;
 
 }
 
