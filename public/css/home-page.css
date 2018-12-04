@@ -1,4 +1,3 @@
-/* * {box-sizing: border-box} */
 
 .main-div-box {
     display: block;
@@ -69,22 +68,6 @@ li {
   display: block;
 }
 
-/* .bigger-box {
-
-      outline: 3px solid #e05f12;
-
-      padding: 10px;
-
-      max-width: 360px;
-
-      margin: 5px 5px 5px 5px;
-
-      display: inline-block;
-
-      min-height: 450px;
-
-} */
-
 .dropdown {
 
     outline: 3px solid #e05f12;
@@ -99,30 +82,13 @@ li {
 
 }
 
-/* .same-boxes{
-
-  outline: 3px solid #e05f12;
-
-  padding: 10px;
-
-  max-width: 360px;
-
-  max-height: 450px;
-
-  margin: 7px 5px 5px 5px;
-
-  display: inline-block;
-
-
-} */
-
 .box-for-content-same {
 
     outline: 3px solid #e05f12;
 
     max-width: 600px;
 
-    margin: 7px 10px 75px 130px;
+    margin: 7px 10px 10px 10px;
 
     padding: 35px;
 
@@ -138,9 +104,9 @@ li {
 
     padding: 30px;
 
-    min-width: 600px;
+    min-width: 450px;
 
-    margin: 7px 15px 15px 140px;
+    margin: 7px 10px 10px 10px;
 
     display: inline-block;
 
@@ -220,20 +186,17 @@ width: 450px;
 .mySlides {display: none}
 #home-image {vertical-align: middle;}
 
-
-/* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
   position: relative;
   margin: auto;
 }
 
-/* Hide the images by default */
  .mySlides {
   display: none;
 }
 
-/* Next & previous buttons */
+
  .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -249,18 +212,17 @@ width: 450px;
   user-select: none;
 }
 
-/* Position the "next button" to the right */
+
  .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/*On hover, add a black background color with a little bit see-through */
+
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
-/* Caption text */
  .text {
   color: white;
   font-size: 20px;
@@ -271,7 +233,6 @@ width: 450px;
   text-align: center;
 }
 
-/* Number text (1/3 etc) */
 .numbertext {
   color: #f2f2f2;
   font-size: 12px;
@@ -279,8 +240,6 @@ width: 450px;
   position: absolute;
   top: 0;
 }
-
-/* The dots/bullets/indicators */
  .dot {
   cursor: pointer;
   height: 15px;
@@ -296,7 +255,6 @@ width: 450px;
   background-color: #717171;
 }
 
-/* Fading animation */
  .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;

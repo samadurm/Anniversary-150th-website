@@ -25,10 +25,9 @@ function initSearch(id = null){
     	}
 
       lookForInput(imgData);
-
+      addEventListenersPost();
 
 }
-
 
 function lookForInput (imgData) {
 

@@ -1,12 +1,4 @@
-function initPost(callback = displayPosts){
-    var jsonreq = new XMLHttpRequest();
-    jsonreq.onreadystatechange = function(){
-        if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-            callback(this.responseText);
-        }
-        if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
-            alert("error occured in loading image json");
-        }
+function initPost(){
         // Micah added this
         var likes = 0;
         var dislikes = 0;
@@ -16,9 +8,6 @@ function initPost(callback = displayPosts){
         var dislikeCount = document.getElementById('dislike-count');
         var postContainer = document.getElementById('post-container')
 
-        // thumbsUp.on('click', function() {
-        //     console.log("thumbsUp is clicked");
-        // });
         var upClick = false;
         function handleThumbsUpClick(){
             if(upClick === false){
@@ -70,33 +59,26 @@ function initPost(callback = displayPosts){
         postContainer.addEventListener('click', function(event){
             postContainer.classList.toggle('enlargePhoto');
         });
-        
-    };
+        addEventListenersPost();
+}
 
-    jsonreq.open('GET','image-data.json',true);
-    jsonreq.send();
-
-
-    //added by Kevin Dong: add event listener to picture so that it goes to comment page
+function addEventListenersPost(){
     var posts = document.getElementsByClassName('drawing-post');
     Array.prototype.forEach.call(posts, function(ele){
         ele.addEventListener('click', function(){
             loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
         });
     });
-    var titleName = document.getElementById('title');
+    var titleName = document.getElementsByClassName('title');
     Array.prototype.forEach.call(titleName, function(ele){
-        titleName.addEventListener('click', function(){
+        ele.addEventListener('click', function(){
             loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
         });
     });
-}
-
-function displayPosts(jsonInfo){
-    var imgData = JSON.parse(jsonInfo);
-    imgData.forEach(element => {
-        var image = document.createElement('img');
-        image.src = element.data;
-        document.getElementById('main-div').appendChild(image);
+    var authorName = document.getElementsByClassName('author');
+    Array.prototype.forEach.call(authorName, function(ele){
+        ele.addEventListener('click', function(){
+            loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+        });
     });
 }

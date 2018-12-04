@@ -36,6 +36,9 @@ function displayComments(jsonInfo,id){
 			}
 		});
 	}
+  if(imgData[commentIDX].creator){
+    $("#author-comment").html(imgData[commentIDX].creator);
+  }
 	if(imgData[commentIDX].goodRating){
 		$("#good_count").html(imgData[commentIDX].goodRating);
 	}
