@@ -8,9 +8,6 @@ function initPost(){
         var dislikeCount = document.getElementById('dislike-count');
         var postContainer = document.getElementById('post-container')
 
-        // thumbsUp.on('click', function() {
-        //     console.log("thumbsUp is clicked");
-        // });
         var upClick = false;
         function handleThumbsUpClick(){
             if(upClick === false){
@@ -62,7 +59,7 @@ function initPost(){
         postContainer.addEventListener('click', function(event){
             postContainer.classList.toggle('enlargePhoto');
         });
-        
+
 
 
 
@@ -86,4 +83,3 @@ function initPost(){
         });
     });
 }
-

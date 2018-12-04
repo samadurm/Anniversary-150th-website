@@ -29,7 +29,6 @@ function initSearch(id = null){
 
 }
 
-
 function lookForInput (imgData) {
 
   var counter = 0;

@@ -2,10 +2,6 @@ document.getElementById("home-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"),initHome);
 });
 
-// document.getElementById("home-button").addEventListener('click',function(){
-//     loadPage(this.getAttribute("loadedpage"),initHome);
-// });
-
 document.getElementById('input-search').onkeypress = function(e){
     if (!e) e = window.event;
     if (e.keyCode == '13'){
@@ -29,14 +25,6 @@ document.getElementById("browse-button").addEventListener('click',function(){
 document.getElementById("search-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"),initSearch);
 });
-
-// document.getElementById("browse-button").addEventListener('click',function(){
-//     loadPage(this.getAttribute("loadedpage"),initBrowse);
-// });
-
-// document.getElementById("search-button").addEventListener('click',function(){
-//
-// });
 
 
 function loadPage(path,callback = function(){},id = null){

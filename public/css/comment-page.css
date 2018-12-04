@@ -1,7 +1,3 @@
-﻿/* *{
-    margin:0px;
-    padding:0px;
-} */
 
 #main{
     background-color:white;
@@ -68,9 +64,8 @@
 #good_bad{
     width:100%;
     height:25px;
-    /*border:1px black solid;*/
-        float:left;
-        margin-right:10px;
+    float:left;
+    margin-right:10px;
 }
 
 #pic_box1{

@@ -45,18 +45,11 @@ function findMostLikes ( imgData ) {
 
   for ( var i = 0; i < imgData.length - 1; i++ ) {
     for ( var j = 0; j < imgData.length - i - 1; j++ ) {
-
-      // console.log ( parseInt(imgData[j].goodRating), parseInt(imgData[j+1].goodRating));
       if ( parseInt(imgData[j].goodRating) < parseInt(imgData[j + 1].goodRating) ) {
-        // console.log("== Made It Here, imgData[j], imgData[j+1]",parseInt(imgData[j].goodRating), parseInt(imgData[j+1].goodRating));
          newImageData = swap ( imgData, j);
       }
     }
   }
-
-  // var newimgData = sortImgDataLikes (imgData)
-
-  // console.log( "==imgData in sort function", imgData);
 
   for ( var i = 0; i < 3; i++) {
 
@@ -77,8 +70,6 @@ function findMostLikes ( imgData ) {
 
 function swap ( imgData, j ) {
 
-  // console.log ( " Image Data at Temp", temp)
-
   var temp = imgData[j+1];
 
   imgData[j + 1] = imgData[j];
@@ -96,10 +87,7 @@ function findMostDisLikes ( imgData ) {
 
   for ( var i = 0; i < imgData.length - 1; i++ ) {
     for ( var j = 0; j < imgData.length - i - 1; j++ ) {
-
-      // console.log ( parseInt(imgData[j].goodRating), parseInt(imgData[j+1].goodRating));
       if ( parseInt(imgData[j].badRating) < parseInt(imgData[j + 1].badRating) ) {
-        // console.log("== Made It Here, imgData[j], imgData[j+1]",parseInt(imgData[j].goodRating), parseInt(imgData[j+1].goodRating));
          newImageData = swap ( imgData, j);
       }
     }
