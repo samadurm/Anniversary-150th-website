@@ -1,12 +1,4 @@
-function initPost(callback = displayPosts){
-    var jsonreq = new XMLHttpRequest();
-    jsonreq.onreadystatechange = function(){
-        if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-            callback(this.responseText);
-        }
-        if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
-            alert("error occured in loading image json");
-        }
+function initPost(){
         // Micah added this
         var likes = 0;
         var dislikes = 0;
@@ -71,10 +63,7 @@ function initPost(callback = displayPosts){
             postContainer.classList.toggle('enlargePhoto');
         });
         
-    };
 
-    jsonreq.open('GET','image-data.json',true);
-    jsonreq.send();
 
 
     //added by Kevin Dong: add event listener to picture so that it goes to comment page
@@ -92,11 +81,3 @@ function initPost(callback = displayPosts){
     });
 }
 
-function displayPosts(jsonInfo){
-    var imgData = JSON.parse(jsonInfo);
-    imgData.forEach(element => {
-        var image = document.createElement('img');
-        image.src = element.data;
-        document.getElementById('main-div').appendChild(image);
-    });
-}
