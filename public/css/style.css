@@ -5,7 +5,7 @@ header {
   background: url('./IMG_0084.JPG');
 
   background-repeat: no-repeat;
-  
+
   background-attachment: fixed;
 
 }
@@ -48,7 +48,6 @@ header {
     float: right;
     padding: 10px;
     margin-top: 8px;
-    margin-right: 16px;
     font-size: 20px;
     background-color: black;
     border: 1px solid #f46b1a;
