@@ -59,11 +59,10 @@ function initPost(){
         postContainer.addEventListener('click', function(event){
             postContainer.classList.toggle('enlargePhoto');
         });
+        addEventListenersPost();
+}
 
-
-
-
-    //added by Kevin Dong: add event listener to picture so that it goes to comment page
+function addEventListenersPost(){
     var posts = document.getElementsByClassName('drawing-post');
     Array.prototype.forEach.call(posts, function(ele){
         ele.addEventListener('click', function(){

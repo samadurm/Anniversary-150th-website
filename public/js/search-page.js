@@ -25,7 +25,7 @@ function initSearch(id = null){
     	}
 
       lookForInput(imgData);
-      addEventListenersSearch();
+      addEventListenersPost();
 
 }
 
@@ -117,25 +117,4 @@ function makeNewPost ( author, id, data, title, goodRating, badRating ) {
 
   return newPhotoHTML;
 
-}
-
-function addEventListenersSearch(){
-  var posts = document.getElementsByClassName('drawing-post');
-  Array.prototype.forEach.call(posts, function(ele){
-      ele.addEventListener('click', function(){
-          loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
-      });
-  });
-  var titleName = document.getElementsByClassName('title');
-  Array.prototype.forEach.call(titleName, function(ele){
-      ele.addEventListener('click', function(){
-          loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
-      });
-  });
-  var authorName = document.getElementsByClassName('author');
-  Array.prototype.forEach.call(authorName, function(ele){
-      ele.addEventListener('click', function(){
-          loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
-      });
-  });
 }
