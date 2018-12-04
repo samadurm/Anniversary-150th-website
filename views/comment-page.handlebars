@@ -1,14 +1,21 @@
 <div id="main" >
+	<div id = title-for-comment>
+		{{title}}
+	</div>
 		<div id="pic">
 			<div id="pic_box1">
 			<img id="pic_img"  onclick="showBigPic()" src={{data}} />
 			</div>
 			<br />
+			<div class = "created-by">
+				Created By:
+			</div>
 			<div id = "author-comment">
-				<div class = author-name >
-				{{creator}}
+				  {{creator}}
 			</div>
-			</div>
+		</div>
+		<div class = "comment-title">
+			Comments
 		</div>
 		<div id="txt_main">
 			<div id="TextArea">
