@@ -73,9 +73,15 @@ function initPost(){
             loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
         });
     });
-    var titleName = document.getElementById('title');
+    var titleName = document.getElementsByClassName('title');
     Array.prototype.forEach.call(titleName, function(ele){
-        titleName.addEventListener('click', function(){
+        ele.addEventListener('click', function(){
+            loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+        });
+    });
+    var authorName = document.getElementsByClassName('author');
+    Array.prototype.forEach.call(authorName, function(ele){
+        ele.addEventListener('click', function(){
             loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
         });
     });

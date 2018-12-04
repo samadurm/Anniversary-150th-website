@@ -31,6 +31,8 @@ function initBrowse(id = null){
 
         findRandom ( imgData );
 
+        addEventListenersBrowse();
+
 }
 
 function findMostLikes ( imgData ) {
@@ -203,4 +205,25 @@ function rand(min, max) {
 
   var randomNumber = Math.floor( Math.random() * range) + offset;
   return randomNumber;
+}
+
+function addEventListenersBrowse(){
+  var posts = document.getElementsByClassName('drawing-post');
+  Array.prototype.forEach.call(posts, function(ele){
+      ele.addEventListener('click', function(){
+          loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+      });
+  });
+  var titleName = document.getElementsByClassName('title');
+  Array.prototype.forEach.call(titleName, function(ele){
+      ele.addEventListener('click', function(){
+          loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+      });
+  });
+  var authorName = document.getElementsByClassName('author');
+  Array.prototype.forEach.call(authorName, function(ele){
+      ele.addEventListener('click', function(){
+          loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+      });
+  });
 }
