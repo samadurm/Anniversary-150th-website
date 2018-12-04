@@ -31,6 +31,8 @@ function initBrowse(id = null){
 
         findRandom ( imgData );
 
+        addEventListenersPost();
+
 }
 
 function findMostLikes ( imgData ) {

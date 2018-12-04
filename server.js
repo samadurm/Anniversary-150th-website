@@ -1,21 +1,7 @@
 const fs = require("fs");
-
-// const MongoClient = require('mongodb').MongoClient;
 const express = require('express');
 const bodyparser = require('body-parser');
 const exphbrs = require('express-handlebars');
-
-// var mongoHost = process.env.MONGO_HOST;
-// var mongoPort = process.env.MONGO_PORT || 27017;
-// var mongoUser = process.env.MONGO_USER;
-// var mongoPassword = process.env.MONGO_PASSWORD;
-// var mongoDBName = process.env.MONGO_DB_NAME;
-//
-// var mongoURL =
-// 	'mongodb://' + mongoUser + ':' + mongoPassword + '@' +
-// 	mongoHost + ':' + mongoPort + '/' + mongoDBName;
-
-
 
 const cssFolder = fs.readdirSync("./public/css");
 const jsFolder = fs.readdirSync("./public/js");
@@ -201,19 +187,6 @@ app.post('*',function(req,res){
         });
     }
 });
-
-// MongoClient.connect (mongoURL, function (err, client) {
-//   if (err){
-//     throw err;
-//   }
-//
-//   else {
-//     mongoDB = client.db(mongoDBName);
-//     console.log('== MongoDB Listening on Port:' + mongoURL);
-//
-//   }
-//
-// })
 
 app.listen(portOptions, function(err){
     if(err){

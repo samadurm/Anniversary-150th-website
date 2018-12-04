@@ -59,20 +59,25 @@ function initPost(){
         postContainer.addEventListener('click', function(event){
             postContainer.classList.toggle('enlargePhoto');
         });
+        addEventListenersPost();
+}
 
-
-
-
-    //added by Kevin Dong: add event listener to picture so that it goes to comment page
+function addEventListenersPost(){
     var posts = document.getElementsByClassName('drawing-post');
     Array.prototype.forEach.call(posts, function(ele){
         ele.addEventListener('click', function(){
             loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
         });
     });
-    var titleName = document.getElementById('title');
+    var titleName = document.getElementsByClassName('title');
     Array.prototype.forEach.call(titleName, function(ele){
-        titleName.addEventListener('click', function(){
+        ele.addEventListener('click', function(){
+            loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+        });
+    });
+    var authorName = document.getElementsByClassName('author');
+    Array.prototype.forEach.call(authorName, function(ele){
+        ele.addEventListener('click', function(){
             loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
         });
     });
