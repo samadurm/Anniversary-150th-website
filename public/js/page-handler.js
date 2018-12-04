@@ -6,6 +6,14 @@ document.getElementById("home-button").addEventListener('click',function(){
 //     loadPage(this.getAttribute("loadedpage"),initHome);
 // });
 
+document.getElementById('input-search').onkeypress = function(e){
+    if (!e) e = window.event;
+    if (e.keyCode == '13'){
+      loadPage('search-page.html',initSearch);
+      return false;
+    }
+  }
+
 document.getElementById("post-button").addEventListener('click',function(){
     loadPage(this.getAttribute("loadedpage"),initPost);
 });
