@@ -54,7 +54,13 @@ header {
     color: #f46b1a;
 
 }
-
+#input-search{
+  background-color: white;
+   width: 300px;
+   height: 20px;
+   margin-top: 12px;
+  
+}
 #search-button {
   float: right;
   padding: 13px 10px;

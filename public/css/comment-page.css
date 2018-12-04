@@ -1,4 +1,4 @@
-#author-comment {
+﻿#author-comment {
 
   font-family: 'Ranga', cursive;
 
@@ -176,4 +176,11 @@ margin-bottom: -4px;
     height:100%;
     opacity:0.5;
     background:#000 none repeat scroll 0% 0%;
+}
+#back-button{
+    height: 30px;
+    width: 60px;
+    background-color: black;
+    color: orange;
+    font-weight: bold;
 }
