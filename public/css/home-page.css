@@ -218,7 +218,7 @@ width: 450px;
 }
 
 .mySlides {display: none}
-img {vertical-align: middle;}
+#home-image {vertical-align: middle;}
 
 
 /* Slideshow container */
