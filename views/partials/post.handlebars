@@ -1,15 +1,14 @@
-<div id = post-container >
+<div class = post-container >
     <div id = author-name-container>
-        <p class = author uid = {{id}}>{{creator}}</p>
+        <p id = author uid = {{id}}>{{creator}}</p>
     </div>
-    <div id = drawing-container class = drawing-post uid = {{id}}>
+    <div id = drawing-container uid = {{id}}>
         <img src = {{data}}>
     </div>
     <div id = info-container>
-        <p class = title uid = {{id}}>{{title}}</p>
+        <p id = title uid = {{id}}>{{title}}</p>
         <span id = thumbs-container>
             <i class = "fa fa-thumbs-up" id = thumbs-up></i>
-            <!-- Added by Matthew changed Good/bad functionality  -->
                 <span id = like-count>{{goodRating}}</span>
             <i class = "fa fa-thumbs-down" id = thumbs-down></i>
                 <span id = dislike-count>{{badRating}}</span>
