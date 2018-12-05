@@ -56,9 +56,13 @@ function addEventListenersPost(){
     var postContainer = document.getElementsByClassName('post-container');
 
     Array.prototype.forEach.call(postContainer, function(ele){
-        ele.addEventListener('click',function(){
-            ele.classList.toggle("enlargePhoto");
-        });
+        var photoName = document.getElementsByClassName('photo-name-container');
+        Array.prototype.forEach.call(photoName, function(photoEl){
+            photoEl.addEventListener('click',function(){
+                photoEl.parentElement.classList.toggle("enlargePhoto");
+            });
+        })
+
         var redirects = ele.getElementsByClassName('post-redirect-item');
         Array.prototype.forEach.call(redirects, function(ele){
             ele.addEventListener('click', function(){
