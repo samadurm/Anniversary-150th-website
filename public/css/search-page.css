@@ -103,3 +103,8 @@ body {
     color: orange;
     font-size: 22px;
 }
+
+#searched-values {
+
+  background-color: #fff0e6;
+}
