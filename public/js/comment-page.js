@@ -78,11 +78,11 @@ function comment() {
   //   alert("One Of The Required Fields Does Not Have An Input");
   //
   // }
-    var txt = $("#txt_pl").val();
-    lasttext += name+": "+txt+'<br/><br>';
+  var txt = $("#txt_pl").val();
+  lasttext += name+": "+txt+'<br/><br>';
 
 	var comment={"newcomment":name+": "+txt,"idx" : commentIDX};
-  
+
   if ( name == "" || txt == "" ){
 
     alert("One Of The Required Fields Does Not Have An Input");

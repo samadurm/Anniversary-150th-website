@@ -7,8 +7,10 @@ body {
 }
 
 #posts-content{
-    display: inline-flex;
-    flex-wrap: wrap;
+    display: block;
+    margin-left: 16%;
+    margin-right: 25%;
+
 }
 #post-container {
     background-color: white;
