@@ -5,7 +5,6 @@
 #main-div {
     background-color: black;
 }
-
 #posts-content{
     background-color: black;
     border: 3px solid red;
@@ -13,14 +12,11 @@
     margin-left:15vw;
     margin-right:15vw;
     padding:15px;
-
 }
-
 #post-title-div{
     width : 400px;
     margin:auto;
 }
-
 #post-title{
     border: none;
     padding:8px 0px;
@@ -30,18 +26,15 @@
     background-color: #e05f12;
     cursor: context-menu;
     width: 400px;
-
 }
-
 .post-container {
     background-color: white;
-    margin:  10px;
+    margin: 10px;
     box-shadow: 1px 5px 10px grey;
     width: 310px;
     height: auto;
     display: inline-block;
 }
-
 #drawing-container:hover {
     cursor: pointer;
 }
@@ -91,8 +84,6 @@
     margin-left: auto;
     margin-right: auto;
 }
-
-
 #thumbs-container{
     position: right;
     color: #e05f12;

@@ -1,49 +1,26 @@
 ﻿body {
-
-  overflow-x: hidden;
-
+    overflow-x: hidden;
 }
-
 #author-comment {
-
-  font-family: 'Ranga', cursive;
-
-  font-size: 30px;
-
-  display: inline-block;
-
-  text-align: center;
-
-  cursor: context-menu;
-
+    font-family: 'Ranga', cursive;
+    font-size: 30px;
+    display: inline-block;
+    text-align: center;
+    cursor: context-menu;
 }
-
 .created-by {
-
-  font-family: 'Ranga', cursive;
-
-  font-size: 30px;
-
-  cursor: context-menu;
-
-  display: inline-block;
-
-  margin-left: 120px;
-
+    font-family: 'Ranga', cursive;
+    font-size: 30px;
+    cursor: context-menu;
+    display: inline-block;
+    margin-left: 120px;
 }
-
 #title-for-comment {
-
-  font-size: 50px;
-
-  padding-left: 100px;
-
-  width: 330px;
-
-  cursor: context-menu;
-
+    font-size: 50px;
+    padding-left: 100px;
+    width: 330px;
+    cursor: context-menu;
 }
-
 #main{
     background-color:white;
     width:90%;
@@ -57,22 +34,13 @@
     overflow: hidden;
     margin-bottom: 30px;
 }
-
 .comment-title {
-
-  color: black;
-
-  font-size: 50px;
-
-  cursor: context-menu;
-
-  display: inline-block;
-
-  margin-left: 172px;
-
+    color: black;
+    font-size: 50px;
+    cursor: context-menu;
+    display: inline-block;
+    margin-left: 172px;
 }
-
-
 #pic{
     width:45%;
     height:438px;
@@ -91,7 +59,6 @@
     float:right;
     cursor: pointer;
 }
-
 #txt_main{
     width:47%;
     height:226px;
@@ -101,24 +68,16 @@
     padding-top:5px;
     padding-left:5px;
 }
-
 .author-for-comment {
-
-  font-size: 22px;
-
-  cursor: context-menu;
-
-  display: inline;
-
+    font-size: 22px;
+    cursor: context-menu;
+    display: inline;
 }
-
 #txt_pl{
     height:30px;
     width:361px;
-
     line-height: 15px;
 }
-
 #TextArea{
     height: 200px;
     border:1px gray solid;
@@ -127,9 +86,7 @@
     padding:10px;
     margin-top: 4px;
     cursor: context-menu;
-
 }
-
 #btn_ok{
     height:36px;
     width:14%;
@@ -140,20 +97,16 @@
     border:hidden;
     cursor: pointer;
 }
-
 #commentator{
     height:24px;
     width: 160px;
 }
-
-
 #good_bad{
     width:100%;
     height:25px;
     float:left;
     margin-right:10px;
 }
-
 #pic_box1{
     height:83%;
     border: 2px solid black;
@@ -169,9 +122,7 @@
     float:left;
     cursor:context-menu;
     margin-top: 8px;
-
 }
-
 .good_bad_box2{
     width:60%;
     height:25px;
@@ -180,36 +131,24 @@
     cursor:context-menu;
     margin-top: 8px;
 }
-
 #big_pic_img{
-        max-width:84%;
-        max-height:93%;
-        margin-left:5%;
-        margin-top: 10px;
+    max-width:84%;
+    max-height:93%;
+    margin-left:5%;
+    margin-top: 10px;
 }
-
 #good_img{
-
-cursor: pointer;
-
-height:50px;
-
-width:50px;
-
-margin-bottom: -4px;
+    cursor: pointer;
+    height:50px;
+    width:50px;
+    margin-bottom: -4px;
 }
-
 #bad_img{
-
-cursor: pointer;
-
-height:50px;
-
-width:50px;
-
-margin-bottom: -4px;
+    cursor: pointer;
+    height:50px;
+    width:50px;
+    margin-bottom: -4px;
 }
-
 #cover{
     position:fixed;
     z-index:9999;
