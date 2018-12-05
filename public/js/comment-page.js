@@ -82,13 +82,30 @@ function comment() {
   lasttext += name+": "+txt+'<br/><br>';
 
 	var comment={"newcomment":name+": "+txt,"idx" : commentIDX};
+  var counterForTxt = 0;
+  var counterForName = 0;
+  for ( var i = 0; i < name.length; i++ ){
+    if ( name[i] == ' ') {
+      counterForName++;
+    }
+  }
+  for ( var i = 0; i < txt.length; i++ ){
+    if ( txt[i] == ' ') {
+      counterForTxt++;
+    }
+  }
+  if ( counterForName == name.length || counterForTxt == txt.length ){
+    alert(" One Of The Required Fields Does Not Have A Valid Input");
+  }
+
+  else{
 
   if ( name == "" || txt == "" ){
-
-    alert("One Of The Required Fields Does Not Have An Input");
-
+    alert(" One Of The Required Fields Does Not Have An Input ");
   }
+
   else {
+    console.log( " We Made It Here ");
 	var postreq = new XMLHttpRequest();
 	postreq.onreadystatechange = function(){
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
@@ -103,6 +120,7 @@ function comment() {
 
     $("#TextArea").html(lasttext);
   }
+}
 
 }
 
