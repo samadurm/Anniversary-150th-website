@@ -70,6 +70,11 @@ function displayComments(jsonInfo,id){
 function comment() {
 	var lasttext=$("#TextArea").html();
 	var name=$("#commentator").val();
+  if ( lasttext === "" || name === "" ){
+    alert("One Of The Required Fields Does Not Have An Input");
+
+  }
+  else {
     var txt = $("#txt_pl").val();
     lasttext += name+":"+txt+'<br/><br>';
 
@@ -88,6 +93,7 @@ function comment() {
 	postreq.send(JSON.stringify(comment));
 
     $("#TextArea").html(lasttext);
+  }
 }
 
 //Good or bad evaluation
