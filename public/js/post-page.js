@@ -2,7 +2,7 @@ function initPost(){
     addEventListenersPost();
 }
 
-function handleThumbsClick(countUp,thumbsUp,countDown,thumbsDown,type){
+function handleThumbsClick(countUp,thumbsUp,countDown,thumbsDown,type,id){
     var likeInt = parseInt(countUp.innerHTML);
     var dislikeInt = parseInt(countDown.innerHTML);
     if(type == 'up'){
@@ -38,7 +38,16 @@ function handleThumbsClick(countUp,thumbsUp,countDown,thumbsDown,type){
             thumbsDown.classList.toggle('highlight');
         }
     }
-    SendAjax(parseInt(countUp.innerHTML),parseInt(countDown.innerHTML));
+    var allPosts = document.getElementsByClassName('post-container');
+    var idx = 0;
+    var count = 0;
+    Array.prototype.forEach.call(allPosts,function(ele){
+        if(ele.getAttribute('uid') == id){
+            idx = count;
+        }
+        count++;
+    });
+    SendAjaxPost(parseInt(countUp.innerHTML),parseInt(countDown.innerHTML),idx);
 }
 
 function addEventListenersPost(){
@@ -59,16 +68,16 @@ function addEventListenersPost(){
         var upCount = ele.getElementsByClassName('like-count')[0];
         var downCount = ele.getElementsByClassName('dislike-count')[0];
         thumbsUp.addEventListener('click',function(){
-            handleThumbsClick(upCount,thumbsUp,downCount,thumbsDown,'up');
+            handleThumbsClick(upCount,thumbsUp,downCount,thumbsDown,'up',ele.getAttribute('uid'));
         });
         thumbsDown.addEventListener('click',function(){
-            handleThumbsClick(upCount,thumbsUp,downCount,thumbsDown,'down');
+            handleThumbsClick(upCount,thumbsUp,downCount,thumbsDown,'down',ele.getAttribute('uid'));
         });
     });
 }
 
-function SendAjax(goodCount,badCount){
-	var CommentCount={"goodCount":goodCount,"badCount":badCount,"idx" : commentIDX};
+function SendAjaxPost(goodCount,badCount,idx){
+	var CommentCount={"goodCount":goodCount,"badCount":badCount,"idx" : idx};
 	var postreq = new XMLHttpRequest();
 	postreq.open('POST','CommentCount',true);
 	postreq.setRequestHeader('Content-Type','application/json');
