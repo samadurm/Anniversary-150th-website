@@ -27,22 +27,25 @@
 			<br />
 			<div id="good_bad">
 				<div class="good_bad_box1">
-					<img id="good_img" src="good.png" style="height:25px;width:23px" onclick="Good(true)" />
+					<img id="good_img" src="good.png" style="height:50px;width:50px" onclick="Good(true)" />
 					<lable id="good_count">{{goodRating}}</label>
 				</div>
 				<div class="good_bad_box2">
-					<img id="bad_img" src="bad.png" style="height:25px;width:23px;" onclick="Bad(true)" />
+					<img id="bad_img" src="bad.png" style="height:50px;width:50px;" onclick="Bad(true)" />
 					<lable id="bad_count">{{badRating}}</label>
 				</div>
 			</div>
+			<div class = "author-for-comment">
+					Author:
+			</div>
 			<div style="min-width:400px;margin-top:30px;">
-				<input id="commentator" value="John"/>
-				<input id="txt_pl" type="text" />
-				<input id="btn_ok" type="submit" value="+"  onclick="comment()"/>&nbsp;&nbsp;&nbsp;
+				<input id="commentator" placeholder="Name Goes Here" value=""/>
+				<input id="txt_pl" placeholder="Comment Goes Here..." type="text" />
+				<input id="btn_ok" type="submit" value="Submit"  onclick="comment()"/>&nbsp;&nbsp;&nbsp;
 			</div>
 		</div>
 </div>
-<div id="modelDiv" style="background-color: #fbfafd; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);  border-top-left-radius: 10px; border-top-right-radius: 10px; display:none;z-index:10000">
+<div id="modelDiv" style="background-color: #fbfafd; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);  border-radius: 10px; height: 380px; display:none;z-index:10000">
     <div>
 		<img id="big_pic_img" src="" />
 	</div>

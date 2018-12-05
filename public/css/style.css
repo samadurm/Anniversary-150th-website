@@ -51,15 +51,13 @@ header {
     font-size: 20px;
     background-color: black;
     border: 1px solid #f46b1a;
-    color: #f46b1a;
-
 }
 #input-search{
   background-color: white;
    width: 300px;
    height: 20px;
    margin-top: 12px;
-  
+
 }
 #search-button {
   float: right;
@@ -73,7 +71,7 @@ header {
 
 ::placeholder{
 
-  color: #f46b1a;
+  color: black;
 
 }
 
