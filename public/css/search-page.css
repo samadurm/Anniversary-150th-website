@@ -3,7 +3,7 @@
     display: inline-flex;
 }
 body {
-    background-color: #fff0e6;
+    background-color: black;
 }
 
 #posts-content{
@@ -102,4 +102,9 @@ body {
 .highlight{
     color: orange;
     font-size: 22px;
+}
+
+#searched-values {
+
+  background-color: #fff0e6;
 }

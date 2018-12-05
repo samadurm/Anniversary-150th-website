@@ -15,7 +15,7 @@ templates['post'] = template({"compiler":[7,">= 4.0.0"],"main":function(containe
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + ">"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</p>\r\n        <span id = thumbs-container>\r\n            <i class = \"fa fa-thumbs-up\" id = thumbs-up></i>\r\n            <!-- Added by Matthew changed Good/bad functionality  -->\r\n                <span id = like-count>"
+    + "</p>\r\n        <span id = thumbs-container>\r\n            <i class = \"fa fa-thumbs-up\" id = thumbs-up></i>\r\n                <span id = like-count>"
     + alias4(((helper = (helper = helpers.goodRating || (depth0 != null ? depth0.goodRating : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"goodRating","hash":{},"data":data}) : helper)))
     + "</span>\r\n            <i class = \"fa fa-thumbs-down\" id = thumbs-down></i>\r\n                <span id = dislike-count>"
     + alias4(((helper = (helper = helpers.badRating || (depth0 != null ? depth0.badRating : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"badRating","hash":{},"data":data}) : helper)))
