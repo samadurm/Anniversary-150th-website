@@ -5,15 +5,15 @@ templates['post'] = template({"compiler":[7,">= 4.0.0"],"main":function(containe
 
   return "<div class = post-container uid = "
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + ">\r\n    <div id = author-name-container uid = "
+    + ">\r\n    <div class = photo-name-container>\r\n        <div id = author-name-container uid = "
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + ">\r\n        <p id = author >"
+    + ">\r\n            <p id = author >"
     + alias4(((helper = (helper = helpers.creator || (depth0 != null ? depth0.creator : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"creator","hash":{},"data":data}) : helper)))
-    + "</p>\r\n    </div>\r\n    <div id = drawing-container uid = "
+    + "</p>\r\n        \r\n    </div>\r\n    <div id = drawing-container uid = "
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + " class = post-drawing-item>\r\n        <img src = "
     + alias4(((helper = (helper = helpers.data || (depth0 != null ? depth0.data : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"data","hash":{},"data":data}) : helper)))
-    + ">\r\n    </div>\r\n    <div id = info-container>\r\n        <p id = title uid = "
+    + ">\r\n    </div>\r\n    </div>\r\n    <div id = info-container>\r\n        <p id = title uid = "
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + " class = post-redirect-item>"
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
