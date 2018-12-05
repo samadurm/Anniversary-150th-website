@@ -1,106 +1,67 @@
 function initPost(){
-        var thumbsUp = document.getElementsByClassName('thumbs-up');
-        var thumbsDown = document.getElementsByClassName('thumbs-down');
-        var likeCount = document.getElementsByClassName('like-count');
-        var dislikeCount = document.getElementsByClassName('dislike-count');
-        var likes = likeCount.innerHTML;
-        var dislikes = dislikeCount.innerHTML;
-        var postContainer = document.getElementsByClassName('post-container');
-
-        Array.prototype.forEach.call(postContainer, function(ele){
-
-        });
-
-        var upClick = false;
-        function handleThumbsUpClick(){
-            if(upClick === false){
-                likes++;
-                likeCount.innerHTML = likes;
-                upClick = true;
-                thumbsUp.classList.toggle('highlight');
-            }
-            else{
-                upClick = false;
-                likes--;
-                likeCount.innerHTML = likes;
-                thumbsUp.classList.toggle('highlight');
-            }
-        }
-        thumbsUp.addEventListener('click', function(event){
-            if(downClick === false) {
-                handleThumbsUpClick();
-            }
-            else{
-                handleThumbsDownClick();
-                handleThumbsUpClick();
-            }
-        });
-        var downClick = false;
-        function handleThumbsDownClick() {
-            if(downClick === false){
-                dislikes++;
-                dislikeCount.innerHTML = dislikes;
-                downClick = true;
-                thumbsDown.classList.toggle('highlight');
-            }
-            else {
-                downClick = false;
-                dislikes--;
-                dislikeCount.innerHTML = dislikes;
-                thumbsDown.classList.toggle('highlight');
-            }
-        }
-        thumbsDown.addEventListener('click', function(event){
-            if(upClick === false) {
-                handleThumbsDownClick();
-            }
-            else{
-                handleThumbsUpClick();
-                handleThumbsDownClick();
-            }
-        });
-        postContainer.addEventListener('click', function(event){
-            postContainer.classList.toggle('enlargePhoto');
-        });
-        addEventListenersPost();
+    addEventListenersPost();
 }
 
-// function addEventListenersPost(){
-//     var posts = document.getElementsByClassName('drawing-post');
-//     Array.prototype.forEach.call(posts, function(ele){
-//         ele.addEventListener('click', function(){
-//             loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
-//         });
-//     });
-//     var titleName = document.getElementsByClassName('title');
-//     Array.prototype.forEach.call(titleName, function(ele){
-//         ele.addEventListener('click', function(){
-//             loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
-//         });
-//     });
-//     var authorName = document.getElementsByClassName('author');
-//     Array.prototype.forEach.call(authorName, function(ele){
-//         ele.addEventListener('click', function(){
-//             loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
-//         });
-//     });
-// }
+function handleThumbsClick(countUp,thumbsUp,countDown,thumbsDown,type){
+    var likeInt = parseInt(countUp.innerHTML);;
+    var dislikeInt = parseInt(countDown.innerHTML);;
+    if(type == 'up'){
+        if(thumbsUp.getAttribute("selected") == 'false'){
+            countUp.innerHTML = likeInt+1;
+            thumbsUp.setAttribute("selected",'true');
+            if(thumbsDown.getAttribute('selected')=='true'){
+                thumbsDown.setAttribute('selected','false');
+                countDown.innerHTML = dislikeInt - 1;
+                thumbsDown.classList.toggle('highlight');
+            }
+            thumbsUp.classList.toggle('highlight');
+        }
+        else{
+            thumbsUp.setAttribute("selected",'false');
+            countUp.innerHTML = likeInt-1;
+            thumbsUp.classList.toggle('highlight');
+        }
+    }else{
+        if(thumbsDown.getAttribute("selected") == 'false'){
+            countDown.innerHTML = dislikeInt+1;
+            thumbsDown.setAttribute("selected",'true');
+            if(thumbsUp.getAttribute('selected')=='true'){
+                thumbsUp.setAttribute('selected','false');
+                countUp.innerHTML = likeInt - 1;
+                thumbsUp.classList.toggle('highlight');
+            }
+            thumbsDown.classList.toggle('highlight');
+        }
+        else{
+            thumbsDown.setAttribute("selected",'false');
+            countDown.innerHTML = dislikeInt-1;
+            thumbsDown.classList.toggle('highlight');
+        }
+    }
+}
 
 function addEventListenersPost(){
     var postContainer = document.getElementsByClassName('post-container');
 
     Array.prototype.forEach.call(postContainer, function(ele){
-        var creator = ele.getElementById('author-name-container');
-        var title = ele.getElementById('title');
-        var image = ele.getElementById('drawing-container');
-        creator.addEventListener('click',function(){
-            loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+        ele.addEventListener('click',function(){
+            ele.classList.toggle("enlargePhoto");
         });
-        title.addEventListener('click',function(){
-            loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+        var redirects = ele.getElementsByClassName('post-redirect-item');
+        Array.prototype.forEach.call(redirects, function(ele){
+            ele.addEventListener('click', function(){
+                loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+            });
         });
-        image.addEventListener('click',function(){
-            loadPage('comment-page.html',initComment,ele.getAttribute('uid'));
+        var thumbsUp = ele.getElementsByClassName('fa fa-thumbs-up')[0];
+        var thumbsDown = ele.getElementsByClassName("fa fa-thumbs-down")[0];
+        var upCount = ele.getElementsByClassName('like-count')[0];
+        var downCount = ele.getElementsByClassName('dislike-count')[0];
+        thumbsUp.addEventListener('click',function(){
+            handleThumbsClick(upCount,thumbsUp,downCount,thumbsDown,'up');
+        });
+        thumbsDown.addEventListener('click',function(){
+            handleThumbsClick(upCount,thumbsUp,downCount,thumbsDown,'down');
         });
     });
 }

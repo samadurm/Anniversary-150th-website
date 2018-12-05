@@ -15,7 +15,7 @@
     margin-right: 10%;
     box-shadow: 1px 1px 25px orange;
 }
-#post-container {
+.post-container {
     background-color: white;
     margin:  10px;
     box-shadow: 10px 10px 20px grey;
@@ -41,14 +41,14 @@
     background-color: black;
     border-top: 1px solid black;
 }
-.title{
+#title{
     cursor: pointer;
     display: inline;
     color: #e05f12;
     text-shadow: 1px 1px 2px black;
     font-weight: bold;
 }
-.author{
+#author{
     float: center;
     font-family: 'Ranga', cursive;
     font-size: 20px;

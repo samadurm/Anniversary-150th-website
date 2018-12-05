@@ -1,17 +1,17 @@
 <div class = post-container >
-    <div id = author-name-container>
+    <div id = author-name-container class = post-redirect-item>
         <p id = author uid = {{id}}>{{creator}}</p>
     </div>
-    <div id = drawing-container uid = {{id}}>
+    <div id = drawing-container uid = {{id}} class = post-redirect-item>
         <img src = {{data}}>
     </div>
     <div id = info-container>
-        <p id = title uid = {{id}}>{{title}}</p>
+        <p id = title uid = {{id}} class = post-redirect-item>{{title}}</p>
         <span id = thumbs-container>
-            <i class = "fa fa-thumbs-up" id = thumbs-up></i>
-                <span id = like-count>{{goodRating}}</span>
-            <i class = "fa fa-thumbs-down" id = thumbs-down></i>
-                <span id = dislike-count>{{badRating}}</span>
+            <i class = "fa fa-thumbs-up"selected='false' ></i>
+                <span class = like-count>{{goodRating}}</span>
+            <i class = "fa fa-thumbs-down"selected='false'></i>
+                <span class = dislike-count >{{badRating}}</span>
         </span>
     </div>
 </div>
