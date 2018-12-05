@@ -70,19 +70,24 @@ function displayComments(jsonInfo,id){
 function comment() {
 	var lasttext=$("#TextArea").html();
 	var name=$("#commentator").val();
-  if ( lasttext === "" || name === "" ){
+  // if ( lasttext == "" || name == "" ){
+  //   alert("One Of The Required Fields Does Not Have An Input");
+  //
+  // }
+    var txt = $("#txt_pl").val();
+    lasttext += name+": "+txt+'<br/><br>';
+
+	var comment={"newcomment":name+": "+txt,"idx" : commentIDX};
+  
+  if ( name == "" || txt == "" ){
+
     alert("One Of The Required Fields Does Not Have An Input");
 
   }
   else {
-    var txt = $("#txt_pl").val();
-    lasttext += name+":"+txt+'<br/><br>';
-
-	var comment={"newcomment":name+": "+txt,"idx" : commentIDX};
 	var postreq = new XMLHttpRequest();
 	postreq.onreadystatechange = function(){
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-			alert(this.responseText);
 		}
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
 			alert("error occured in comment image");
@@ -94,6 +99,7 @@ function comment() {
 
     $("#TextArea").html(lasttext);
   }
+
 }
 
 //Good or bad evaluation
