@@ -271,7 +271,8 @@ function initAddpost(){
             var postreq = new XMLHttpRequest();
             postreq.onreadystatechange = function(){
                 if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-                    alert(this.responseText);
+                  loadPage('post-page.html',initPost);
+                  console.log (" We Made It Here");
                 }
                 if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
                     alert("error occured in saving image");

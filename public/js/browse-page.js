@@ -93,9 +93,6 @@ function findMostDisLikes ( imgData ) {
     }
   }
 
-
-  console.log("== imgData in DisLikes After Sort",imgData);
-
   for ( var i = 0; i < 3; i++) {
 
     author = imgData[i].creator;
