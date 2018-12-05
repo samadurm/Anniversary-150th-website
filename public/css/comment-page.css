@@ -64,12 +64,6 @@ body {
 
   font-size: 50px;
 
-  position: absolute;
-
-  right: 404px;
-
-  top: 320px;
-
   cursor: context-menu;
 
 }
@@ -101,13 +95,7 @@ body {
 
 .author-for-comment {
 
-  position: absolute;
-
   font-size: 22px;
-
-  top: 608px;
-
-  right: 720px;
 
   cursor: context-menu;
 
@@ -116,9 +104,7 @@ body {
 #txt_pl{
     height:30px;
     width:361px;
-    position: absolute;
-    top: 642px;
-    right: 423px;
+
     line-height: 15px;
 }
 
@@ -134,24 +120,18 @@ body {
 
 #btn_ok{
     height:36px;
-    width:6%;
+    width:14%;
     text-align:center;
     font-size:18px;
     color:white;
     background-color:orange;
     border:hidden;
-    position: absolute;
-    top: 642px;
-    right: 332px;
     cursor: pointer;
 }
 
 #commentator{
     height:24px;
-    position: absolute;
-    top: 608px;
     width: 160px;
-    right: 554px;
 }
 
 
@@ -176,9 +156,7 @@ body {
     font-size: 50px;
     float:left;
     cursor:context-menu;
-    position: absolute;
-    top: 704px;
-    right: -332px;
+
 }
 
 .good_bad_box2{
@@ -187,9 +165,6 @@ body {
     float:left;
     font-size: 50px;
     cursor:context-menu;
-    position: absolute;
-    top: 707px;
-    right: -80px;
 }
 
 #big_pic_img{
@@ -236,9 +211,6 @@ margin-bottom: -4px;
     height: 30px;
     width: 60px;
     background-color: black;
-    position: absolute;
-    top: 321px;
-    right: 185px;
     color: orange;
     font-weight: bold;
     cursor: pointer;

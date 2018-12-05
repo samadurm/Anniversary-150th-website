@@ -41,6 +41,7 @@
     box-shadow: 5px 5px 10px grey;
     width: 310px;
     height: auto;
+    display: inline-block;
 }
 
 #drawing-container:hover {
@@ -77,6 +78,7 @@
     padding:10px;
     text-align: center;
     padding-top: 2px;
+    cursor: pointer;
 }
 #title:hover{
     text-decoration: underline;
