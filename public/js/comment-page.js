@@ -24,6 +24,9 @@ $(document).click(function (e) {
         $("#modelDiv").fadeOut();
     }
 });
+$('#back-button').click(function(e){
+	loadPage('post-page.html',initPost);
+});
 }
 
 
