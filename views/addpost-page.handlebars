@@ -1,11 +1,15 @@
 <div id = addpost-main-div>
-   <div class = post-title-container>
-        <input id = title-post-input class = title-post type = "text" name = post-title placeholder="Title">
-        <input id = creator-post-input class = title-post type = "text" name = post-creator placeholder="Name">
+    <div class = box-for-title>
+      <div class = box-for-arguement>
+            Post-Info
+            <input id = title-post-input class = title-post type = "text" name = post-title placeholder="Title of Drawing">
+            <input id = creator-post-input class = title-post type = "text" name = post-creator placeholder="Creator Of Drawing">
+      </div>
+      <button id = post-image-button class = sidebar-button>Post</button>
     </div>
     <div class = post-drawing-container>
-        <canvas id = addpost-canvas width = 1350 height = 700></canvas>
-        <canvas id = preview-canvas width = 1350 height = 700></canvas>
+        <canvas id = addpost-canvas width = 1075 height = 700></canvas>
+        <canvas id = preview-canvas width = 1075 height = 700></canvas>
     </div>
     <div class = post-options-container>
             <div class = linewidth-options>
@@ -26,7 +30,6 @@
                 <canvas id = opacity-options class = sidebar-option width = 15 height = 200></canvas>
             </div>
             <div class = button-container>
-                <button id = post-image-button class = sidebar-button>Post</button>
                 <button id = reset-button class = sidebar-button>Reset</button>
             </div>
         </div>

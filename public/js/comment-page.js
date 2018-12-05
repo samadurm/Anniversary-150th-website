@@ -47,9 +47,13 @@ function displayComments(jsonInfo,id){
   }
 	if(imgData[commentIDX].goodRating){
 		$("#good_count").html(imgData[commentIDX].goodRating);
+	}else{
+		$("#good_count").html(0);
 	}
   if(imgData[commentIDX].badRating){
     $("#bad_count").html(imgData[commentIDX].badRating);
+  }else{
+	$("#bad_count").html(0);
   }
 	$("#pic_img").attr('src',imgData[commentIDX].data);
 	$("#pic_img").attr('data-title',imgData[commentIDX].title)
@@ -70,14 +74,24 @@ function displayComments(jsonInfo,id){
 function comment() {
 	var lasttext=$("#TextArea").html();
 	var name=$("#commentator").val();
+  // if ( lasttext == "" || name == "" ){
+  //   alert("One Of The Required Fields Does Not Have An Input");
+  //
+  // }
     var txt = $("#txt_pl").val();
-    lasttext += name+":"+txt+'<br/><br>';
+    lasttext += name+": "+txt+'<br/><br>';
 
-	var comment={"newcomment":name+":"+txt,"idx" : commentIDX};
+	var comment={"newcomment":name+": "+txt,"idx" : commentIDX};
+  
+  if ( name == "" || txt == "" ){
+
+    alert("One Of The Required Fields Does Not Have An Input");
+
+  }
+  else {
 	var postreq = new XMLHttpRequest();
 	postreq.onreadystatechange = function(){
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-			alert(this.responseText);
 		}
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
 			alert("error occured in comment image");
@@ -88,6 +102,8 @@ function comment() {
 	postreq.send(JSON.stringify(comment));
 
     $("#TextArea").html(lasttext);
+  }
+
 }
 
 //Good or bad evaluation
@@ -99,12 +115,11 @@ function Good(check) {
 		var goodCount=$("#good_count").text();
 
 		if($("#bad_img").attr('src')=='Images/bad_orang.png'){
-			badCount--;
+      	badCount--;
 			$("#bad_count").text(badCount);
 		}
 		$("#good_img").attr("src", "Images/good_orang.png");
         $("#bad_img").attr("src", "Images/bad.png");
-
 		goodCount++;
 		$("#good_count").text(goodCount);
 
@@ -116,9 +131,8 @@ function Good(check) {
 
 		var badCount=$("#bad_count").text();
 		var goodCount=$("#good_count").text();
-		goodCount--;
+    goodCount--;
 		$("#good_count").text(goodCount);
-
 		SendAjax(goodCount,badCount,"error occured in cancel good image");
     }
 
@@ -131,9 +145,10 @@ function Bad(check) {
         check = false;
 		var goodCount=$("#good_count").text();
 		var badCount=$("#bad_count").text();
+    console.log("==GoodCount",goodCount, "==BadCount", badCount);
 
 		if($("#good_img").attr('src')=='Images/good_orang.png'){
-			goodCount--;
+      goodCount--;
 			$("#good_count").text(goodCount);
 		}
         $("#bad_img").attr("src", "Images/bad_orang.png");
@@ -153,22 +168,13 @@ function Bad(check) {
 		badCount--;
 		$("#bad_count").text(badCount);
 
+    }
 		SendAjax(goodCount,badCount,"error occured in cancel bad image");
     }
 
-}
-
-function SendAjax(goodCount,badCount,message){
+function SendAjax(goodCount,badCount){
 	var CommentCount={"goodCount":goodCount,"badCount":badCount,"idx" : commentIDX};
 	var postreq = new XMLHttpRequest();
-	postreq.onreadystatechange = function(){
-		if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-			alert(this.responseText);
-		}
-		if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
-			alert(message);
-		}
-	};
 	postreq.open('POST','CommentCount',true);
 	postreq.setRequestHeader('Content-Type','application/json');
 	postreq.send(JSON.stringify(CommentCount));
