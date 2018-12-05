@@ -142,7 +142,7 @@ body {
     border:hidden;
     position: absolute;
     top: 642px;
-    right: 347px;
+    right: 332px;
     cursor: pointer;
 }
 
@@ -193,9 +193,10 @@ body {
 }
 
 #big_pic_img{
-        max-width:113%;
+        max-width:84%;
         max-height:93%;
-        margin-left:10%;
+        margin-left:5%;
+        margin-top: 10px;
 }
 
 #good_img{

@@ -99,12 +99,11 @@ function Good(check) {
 		var goodCount=$("#good_count").text();
 
 		if($("#bad_img").attr('src')=='Images/bad_orang.png'){
-			badCount--;
+      	badCount--;
 			$("#bad_count").text(badCount);
 		}
 		$("#good_img").attr("src", "Images/good_orang.png");
         $("#bad_img").attr("src", "Images/bad.png");
-
 		goodCount++;
 		$("#good_count").text(goodCount);
 
@@ -116,9 +115,8 @@ function Good(check) {
 
 		var badCount=$("#bad_count").text();
 		var goodCount=$("#good_count").text();
-		goodCount--;
+    goodCount--;
 		$("#good_count").text(goodCount);
-
 		SendAjax(goodCount,badCount,"error occured in cancel good image");
     }
 
@@ -131,9 +129,10 @@ function Bad(check) {
         check = false;
 		var goodCount=$("#good_count").text();
 		var badCount=$("#bad_count").text();
+    console.log("==GoodCount",goodCount, "==BadCount", badCount);
 
 		if($("#good_img").attr('src')=='Images/good_orang.png'){
-			goodCount--;
+      goodCount--;
 			$("#good_count").text(goodCount);
 		}
         $("#bad_img").attr("src", "Images/bad_orang.png");
@@ -153,20 +152,17 @@ function Bad(check) {
 		badCount--;
 		$("#bad_count").text(badCount);
 
+    }
 		SendAjax(goodCount,badCount,"error occured in cancel bad image");
     }
-
-}
 
 function SendAjax(goodCount,badCount,message){
 	var CommentCount={"goodCount":goodCount,"badCount":badCount,"idx" : commentIDX};
 	var postreq = new XMLHttpRequest();
 	postreq.onreadystatechange = function(){
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-			alert(this.responseText);
 		}
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
-			alert(message);
 		}
 	};
 	postreq.open('POST','CommentCount',true);

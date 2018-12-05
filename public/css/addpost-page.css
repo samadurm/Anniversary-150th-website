@@ -8,7 +8,7 @@
     position : absolute;
     top:320px;
     left:10px;
-    width:70vw;
+    width:1075px;
     height : 700px;
     overflow : hidden;
     border : 1px solid lightgray;
@@ -61,6 +61,8 @@
   left: 73vw;
 
   width: 25vw;
+
+  z-index: 1000;
 
 }
 
