@@ -58,6 +58,7 @@
     padding:10px;
     text-align: center;
     padding-top: 2px;
+    cursor: pointer;
 }
 #title:hover{
     text-decoration: underline;
