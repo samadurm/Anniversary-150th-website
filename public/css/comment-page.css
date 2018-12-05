@@ -66,6 +66,10 @@ body {
 
   cursor: context-menu;
 
+  display: inline-block;
+
+  margin-left: 172px;
+
 }
 
 
@@ -85,7 +89,7 @@ body {
 
 #txt_main{
     width:47%;
-    height:32%;
+    height:226px;
     margin-top:-10px;
     margin-right:64px;
     float:right;
@@ -99,6 +103,8 @@ body {
 
   cursor: context-menu;
 
+  display: inline;
+
 }
 
 #txt_pl{
@@ -109,13 +115,14 @@ body {
 }
 
 #TextArea{
-    height:120%;
+    height: 200px;
     border:1px gray solid;
     overflow-y:scroll;
     overflow-x:hidden;
     padding:10px;
     margin-top: 4px;
     cursor: context-menu;
+
 }
 
 #btn_ok{
@@ -151,20 +158,22 @@ body {
     border-radius: 1%;
 }
 .good_bad_box1{
-    width:73%;
+    width:20%;
     height:25px;
     font-size: 50px;
     float:left;
     cursor:context-menu;
+    margin-top: 8px;
 
 }
 
 .good_bad_box2{
-    width:48%;
+    width:20%;
     height:25px;
     float:left;
     font-size: 50px;
     cursor:context-menu;
+    margin-top: 8px;
 }
 
 #big_pic_img{
@@ -214,4 +223,6 @@ margin-bottom: -4px;
     color: orange;
     font-weight: bold;
     cursor: pointer;
+    float: right;
+    margin-right: 64px;
 }

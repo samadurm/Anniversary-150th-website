@@ -26,7 +26,7 @@
 				{{/each}}
 			</div>
 			<br />
-			<div id="good_bad">
+			<!-- <div id="good_bad">
 				<div class="good_bad_box1">
 					<img id="good_img" src="good.png" style="height:50px;width:50px" onclick="Good(true)" />
 					<lable id="good_count">{{goodRating}}</label>
@@ -35,14 +35,22 @@
 					<img id="bad_img" src="bad.png" style="height:50px;width:50px;" onclick="Bad(true)" />
 					<lable id="bad_count">{{badRating}}</label>
 				</div>
-			</div>
+			</div> -->
 			<div class = "author-for-comment">
 					Author:
 			</div>
-			<div style="min-width:400px;margin-top:30px;">
+			<div style="min-width:400px;margin-top:30px;display: inline">
 				<input id="commentator" placeholder="Name Goes Here" value=""/>
 				<input id="txt_pl" placeholder="Comment Goes Here..." type="text" />
 				<input id="btn_ok" type="submit" value="Submit"  onclick="comment()"/>&nbsp;&nbsp;&nbsp;
+			</div>
+			<div class="good_bad_box1">
+				<img id="good_img" src="good.png" style="height:50px;width:50px" onclick="Good(true)" />
+				<lable id="good_count">{{goodRating}}</label>
+			</div>
+			<div class="good_bad_box2">
+				<img id="bad_img" src="bad.png" style="height:50px;width:50px;" onclick="Bad(true)" />
+				<lable id="bad_count">{{badRating}}</label>
 			</div>
 		</div>
 </div>
