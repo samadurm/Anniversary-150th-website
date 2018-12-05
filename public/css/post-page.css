@@ -14,7 +14,140 @@
     width: 1000px;
     margin: 20px 10%;
     padding:15px;
-    
+
+}
+
+#post-title-div{
+    width : 400px;
+    margin:auto;
+}
+
+#post-title{
+    border: none;
+    padding:8px 0px;
+    text-align: center;
+    font-size: 26px;
+    color: white;
+    background-color: #e05f12;
+    cursor: context-menu;
+    width: 400px;
+
+
+}
+
+.post-container {
+    background-color: white;
+    margin:  10px;
+    box-shadow: 5px 5px 10px grey;
+    width: 310px;
+    height: auto;
+    display: inline-block;
+}
+
+#drawing-container:hover {
+    cursor: pointer;
+}
+.enlargePhoto{
+    transition: all .3s ease-in;
+    opacity: 1;
+    transform: scale(1.2);
+}
+#drawing-container {
+    display: block;
+    width: 300px;
+    height: 160px;
+}
+#info-container {
+    padding: 10px;
+    background-color: black;
+    border-top: 1px solid black;
+}
+#title{
+    cursor: pointer;
+    display: inline;
+    color: #e05f12;
+    text-shadow: 1px 1px 2px black;
+    font-weight: bold;
+}
+#author{
+    float: center;
+    font-family: 'Ranga', cursive;
+    font-size: 20px;
+}
+#author-name-container{
+    padding:10px;
+    text-align: center;
+    padding-top: 2px;
+    cursor: pointer;
+}
+#title:hover{
+    text-decoration: underline;
+    text-shadow: 1px 1px 2px black;
+    color: orange;
+}
+#main-div img {
+    max-width: 300px;
+    max-height: 150px;
+    padding: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#thumbs-container{
+    position: right;
+    color: #e05f12;
+    float: right;
+    font-size: 20px;
+}
+#thumbs:hover{
+    color: orange;
+    text-shadow: 1px 1px 2px black;
+}
+#like-count{
+    background: white;
+    border: 1px solid #e05f12;
+    padding: 3px;
+    font-size: 16px;
+    color: black;
+    cursor: context-menu;
+    font-weight:bold;
+}
+#dislike-count{
+    background: white;
+    border: 1px solid #e05f12;
+    padding: 3px;
+    font-size: 16px;
+    color: black;
+    font-weight:bold;
+    font-weight:bold;
+    cursor: context-menu;
+}
+.highlight{
+    color: orange;
+    font-size: 22px;
+}
+
+
+
+#top-bar {
+    background-color: black;
+    display: inline-flex;
+}
+#main-div {
+    background-color: black;
+}
+
+#posts-content{
+    display: inline-flex;
+    flex-wrap: wrap;
+    background-color: black;
+    border: 3px solid red;
+    width: 1000px;
+    margin: 20px 10%;
+    padding:15px;
+
 }
 
 #post-title-div{
