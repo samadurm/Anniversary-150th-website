@@ -3,8 +3,8 @@ function initPost(){
 }
 
 function handleThumbsClick(countUp,thumbsUp,countDown,thumbsDown,type){
-    var likeInt = parseInt(countUp.innerHTML);;
-    var dislikeInt = parseInt(countDown.innerHTML);;
+    var likeInt = parseInt(countUp.innerHTML);
+    var dislikeInt = parseInt(countDown.innerHTML);
     if(type == 'up'){
         if(thumbsUp.getAttribute("selected") == 'false'){
             countUp.innerHTML = likeInt+1;
@@ -38,6 +38,7 @@ function handleThumbsClick(countUp,thumbsUp,countDown,thumbsDown,type){
             thumbsDown.classList.toggle('highlight');
         }
     }
+    SendAjax(parseInt(countUp.innerHTML),parseInt(countDown.innerHTML));
 }
 
 function addEventListenersPost(){
@@ -64,4 +65,12 @@ function addEventListenersPost(){
             handleThumbsClick(upCount,thumbsUp,downCount,thumbsDown,'down');
         });
     });
+}
+
+function SendAjax(goodCount,badCount){
+	var CommentCount={"goodCount":goodCount,"badCount":badCount,"idx" : commentIDX};
+	var postreq = new XMLHttpRequest();
+	postreq.open('POST','CommentCount',true);
+	postreq.setRequestHeader('Content-Type','application/json');
+	postreq.send(JSON.stringify(CommentCount));
 }

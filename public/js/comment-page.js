@@ -47,9 +47,13 @@ function displayComments(jsonInfo,id){
   }
 	if(imgData[commentIDX].goodRating){
 		$("#good_count").html(imgData[commentIDX].goodRating);
+	}else{
+		$("#good_count").html(0);
 	}
   if(imgData[commentIDX].badRating){
     $("#bad_count").html(imgData[commentIDX].badRating);
+  }else{
+	$("#bad_count").html(0);
   }
 	$("#pic_img").attr('src',imgData[commentIDX].data);
 	$("#pic_img").attr('data-title',imgData[commentIDX].title)
@@ -156,15 +160,9 @@ function Bad(check) {
 		SendAjax(goodCount,badCount,"error occured in cancel bad image");
     }
 
-function SendAjax(goodCount,badCount,message){
+function SendAjax(goodCount,badCount){
 	var CommentCount={"goodCount":goodCount,"badCount":badCount,"idx" : commentIDX};
 	var postreq = new XMLHttpRequest();
-	postreq.onreadystatechange = function(){
-		if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
-		}
-		if(this.readyState == XMLHttpRequest.DONE && this.status == 404){
-		}
-	};
 	postreq.open('POST','CommentCount',true);
 	postreq.setRequestHeader('Content-Type','application/json');
 	postreq.send(JSON.stringify(CommentCount));
