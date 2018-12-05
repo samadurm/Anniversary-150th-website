@@ -171,3 +171,178 @@ font-size: 16px;
   font-size: 16px;
 
 }
+
+
+#addpost-main-div{
+    width:100%;
+    height:800px;
+    background-color: rgba(150,150,150, 0.1);
+}
+
+.post-drawing-container{
+    position : absolute;
+    top:320px;
+    left:10px;
+    width:1075px;
+    height : 700px;
+    overflow : hidden;
+    border : 1px solid lightgray;
+    background-color:white;
+    margin:15px;
+}
+
+.post-drawing-container canvas{
+    position : absolute;
+    top:0px;
+    left:0px;
+}
+
+#preview-canvas{
+    z-index : 1;
+}
+
+#addpost-canvas{
+    z-index : 2;
+}
+
+.box-for-arguement {
+
+  color: black;
+
+  font-size: 40px;
+
+}
+
+.box-for-title {
+
+  background-color: #fff0e6;
+
+  max-width: 276px;
+
+  height: 150px;
+
+  border-radius: 5px;
+
+  position: absolute;
+
+  top: 330px;
+
+  right: 52px;
+
+  padding: 15px;
+
+  margin: 5px;
+
+  left: 73vw;
+
+  width: 25vw;
+
+  z-index: 1000;
+
+}
+
+.post-options-container{
+    background-color: #fff0e6;
+    position : absolute;
+    top:320px;
+    left:73vw;
+    width:25vw;
+    max-width: 276px;
+    height:360px;
+    overflow:auto;
+    border : 1px solid lightgray;
+    border-radius: 5px;
+    margin:5px;
+    padding: 15px;
+    position: absolute;
+    top: 522px;
+    right: 12px;
+    overflow-y: hidden;
+}
+
+#darkness-options{
+    position : absolute;
+    left:227px;
+    top: 108px;
+}
+
+#opacity-options{
+    position : absolute;
+    right: 24px;
+    top: 108px;
+}
+
+#title-post-input {
+
+  height: 25px;
+    width: 280px;
+
+}
+
+#creator-post-input {
+
+  height: 25px;
+    width: 204px;
+
+}
+
+#reset-button {
+  position: absolute;
+  top: 56px;
+  bottom: 0px;
+  width: auto;
+  height: 42px;
+  right: 26px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+#post-image-button {
+
+  position: absolute;
+    top: 124px;
+    right: 6px;
+    font-size: 27px;
+
+}
+
+#eraser-button {
+font-size: 16px;
+margin: 4px;
+
+cursor: pointer;
+
+}
+
+#pen-button {
+
+  font-size: 16px;
+margin: 4px;
+cursor: pointer;
+}
+
+#circle-button {
+font-size: 16px;
+margin: 4px;
+margin-bottom: 5px;
+cursor: pointer;
+}
+
+#square-button {
+font-size: 16px;
+margin: 4px;
+cursor: pointer;
+}
+
+#linewidth-range {
+font-size: 16px;
+  cursor: pointer;
+
+}
+
+
+#linewidth-value {
+
+  font-size: 16px;
+
+}
