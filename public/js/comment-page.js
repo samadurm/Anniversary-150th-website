@@ -78,7 +78,7 @@ function comment() {
     var txt = $("#txt_pl").val();
     lasttext += name+":"+txt+'<br/><br>';
 
-	var comment={"newcomment":name+":"+txt,"idx" : commentIDX};
+	var comment={"newcomment":name+": "+txt,"idx" : commentIDX};
 	var postreq = new XMLHttpRequest();
 	postreq.onreadystatechange = function(){
 		if(this.readyState == XMLHttpRequest.DONE && this.status == 200){
