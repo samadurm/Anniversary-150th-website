@@ -1,4 +1,4 @@
-# CS290-Final
+# Anniversary-150th-website
 
 
 People Who Contributed:
@@ -13,7 +13,7 @@ Thus, we came up with the idea to create a website where you could draw what you
 There are four different tabs that include the "Home-Tab", "All-Posts-Tab", "Add-Post-Tab", and lastly, the "Browse-Tab".
 There is also a "Search-Bar" that you may use.
 
-What They each Contain:
+What they each contain:
 
 "Home-Tab": This is the default tab for when you load the website. This tab shows a brief description of where/what OSU is, a
 couple of interesting facts, and lastly a slideshow of photos that Matthew took of different parts of campus.
