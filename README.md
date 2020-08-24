@@ -1,5 +1,8 @@
 # Anniversary-150th-website
 
+To run: 
+
+This website requires npm package manager to run. To run the website on localhost, first run npm install, then npm start. The website will then run on localhost:3000
 
 People Who Contributed:
 
